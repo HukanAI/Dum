@@ -1,0 +1,988 @@
+<title>Dům Karviná 2904/26</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column of drawing sheets; the plan sheet widens to a two-pane tool. */
+:root{
+  --paper:#f2f3ef; --sheet:#fbfbf8; --ink:#1c2226; --muted:#5b6569; --line:#cfd3cd;
+  --accent:#2c4a78; --accent-soft:#dfe6f1; --sun:#e39a2d; --sun-glow:rgba(240,168,52,.55);
+  --shade:rgba(28,34,38,.22); --good:#3f7a4f; --warn:#a8641c; --crit:#a63d32;
+  --wall:#1f2427; --part:#646d70; --f-room:#f3efe6; --f-living:#f1ece2; --f-wet:#e3edf2; --f-hall:#ece6dc;
+  --f-tech:#e6e6e3; --ground:#e3e9dc; --terrace:#e2dbcc; --paving:#d9d6cf; --road:#c9c9c6; --fur:#7b705d;
+  --fur-fill:#fffdf8; --glass:#7fa7c9; --tree:rgba(98,140,92,.28); --plotline:#7d867d;
+  --f-display:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#121618; --sheet:#181d20; --ink:#e4e7e2; --muted:#9aa4a6; --line:#323a3d;
+  --accent:#93b3e6; --accent-soft:#223249; --sun:#f2b04a; --sun-glow:rgba(242,176,74,.5);
+  --shade:rgba(0,0,0,.42); --good:#78b98a; --warn:#e0a35c; --crit:#e07a6c;
+  --wall:#d9ddd6; --part:#8d979a; --f-room:#23292c; --f-living:#252b2e; --f-wet:#1f2a31; --f-hall:#272a2b;
+  --f-tech:#262829; --ground:#1b231c; --terrace:#2b2924; --paving:#2c2c2a; --road:#2f3132; --fur:#b3a78f;
+  --fur-fill:#1d2225; --glass:#7fb0dc; --tree:rgba(120,170,110,.22); --plotline:#7f8a80; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#121618; --sheet:#181d20; --ink:#e4e7e2; --muted:#9aa4a6; --line:#323a3d;
+  --accent:#93b3e6; --accent-soft:#223249; --sun:#f2b04a; --sun-glow:rgba(242,176,74,.5);
+  --shade:rgba(0,0,0,.42); --good:#78b98a; --warn:#e0a35c; --crit:#e07a6c;
+  --wall:#d9ddd6; --part:#8d979a; --f-room:#23292c; --f-living:#252b2e; --f-wet:#1f2a31; --f-hall:#272a2b;
+  --f-tech:#262829; --ground:#1b231c; --terrace:#2b2924; --paving:#2c2c2a; --road:#2f3132; --fur:#b3a78f;
+  --fur-fill:#1d2225; --glass:#7fb0dc; --tree:rgba(120,170,110,.22); --plotline:#7f8a80; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:1180px;margin:0 auto}
+header.top{padding-block:44px 28px;border-bottom:2px solid var(--ink);display:grid;gap:18px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-stretch:78%;font-weight:760;font-size:clamp(38px,6.4vw,74px);line-height:.95;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h1 .pc{color:var(--accent)}
+.lead{max-width:62ch;margin:0;font-size:19px}
+.facts{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);border-width:1px 0 0 1px;background:var(--sheet);margin:0}
+.facts div{flex:1 1 180px;padding:12px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0}
+.facts dt{font-family:var(--f-display);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0}
+.facts dd{margin:2px 0 0;font-family:var(--f-mono);font-size:19px;font-variant-numeric:tabular-nums}
+.facts dd small{font-size:12px;color:var(--muted);display:block}
+nav.toc{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--f-display);font-size:14px}
+nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+section{padding-block:48px 8px;border-bottom:1px solid var(--line)}
+.sh{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.sh .code{font-family:var(--f-mono);font-size:13px;color:var(--accent);border:1px solid var(--accent);padding:1px 6px}
+h2{font-family:var(--f-display);font-stretch:82%;font-weight:720;font-size:clamp(26px,3.6vw,38px);margin:0;line-height:1.05;text-wrap:balance}
+h3{font-family:var(--f-display);font-weight:680;font-size:19px;margin:26px 0 8px;text-wrap:balance}
+p{margin:0 0 12px;max-width:68ch}
+.cols{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:900px){.cols{grid-template-columns:1fr}}
+ul.pts{margin:0;padding-left:18px;display:grid;gap:8px;max-width:68ch}
+ul.pts li::marker{color:var(--accent)}
+.note{border-left:3px solid var(--warn);padding:8px 14px;background:var(--sheet);max-width:68ch;font-size:16px}
+.note b{font-family:var(--f-display)}
+.sheet{background:var(--sheet);border:1px solid var(--line)}
+.tbl{overflow-x:auto;border:1px solid var(--line);background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-display);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;white-space:nowrap}
+td.num,th.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.num{font-size:14px}
+.chip{display:inline-block;font-family:var(--f-display);font-size:12px;font-weight:650;letter-spacing:.04em;padding:2px 8px;border:1px solid currentColor;white-space:nowrap}
+.chip.c1{color:var(--crit)} .chip.c2{color:var(--warn)} .chip.c3{color:var(--muted)}
+.arrow{color:var(--accent)}
+/* plan tool */
+.tool{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:0;border:1px solid var(--line);background:var(--sheet)}
+@media (max-width:980px){.tool{grid-template-columns:1fr}}
+.tool .stage{min-width:0;border-right:1px solid var(--line);position:relative}
+@media (max-width:980px){.tool .stage{border-right:0;border-bottom:1px solid var(--line)}}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line);font-family:var(--f-display);font-size:14px}
+.toolbar label{display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+.toolbar input[type=checkbox]{accent-color:var(--accent);width:16px;height:16px}
+svg.plan{display:block;width:100%;height:auto;background:var(--ground);touch-action:pan-y}
+.side{padding:14px 14px 18px;display:grid;gap:14px;align-content:start;min-width:0}
+.ctrl{display:grid;gap:6px}
+.ctrl .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-family:var(--f-display);font-size:13px;color:var(--muted)}
+.ctrl .val{font-family:var(--f-mono);font-size:16px;color:var(--ink);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--sun)}
+.presets{display:flex;flex-wrap:wrap;gap:6px}
+button{font-family:var(--f-display);font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:6px 10px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--sheet)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sunread{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;font-family:var(--f-mono);font-size:13px;font-variant-numeric:tabular-nums}
+.sunread span{color:var(--muted);font-family:var(--f-display);font-size:12px;display:block}
+.bars{display:grid;gap:5px}
+.bar{display:grid;grid-template-columns:96px minmax(0,1fr) 46px;gap:8px;align-items:center;font-size:13px;font-family:var(--f-display)}
+.bar .t{height:9px;background:var(--line);position:relative}
+.bar .t i{position:absolute;inset:0 auto 0 0;background:var(--sun)}
+.bar .v{font-family:var(--f-mono);font-size:12px;text-align:right;font-variant-numeric:tabular-nums}
+.small{font-size:13px;color:var(--muted);font-family:var(--f-display);line-height:1.4}
+.info{padding:8px 12px;border-top:1px solid var(--line);font-family:var(--f-display);font-size:14px;min-height:40px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;padding:8px 12px;border-top:1px solid var(--line);font-family:var(--f-display);font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:10px;margin-right:5px;vertical-align:-1px;border:1px solid var(--line)}
+svg.plan.detail{height:min(76vh,780px)}
+.dim.gap line{stroke:var(--accent)} .dim.gap text{fill:var(--accent)}
+.dim.ext line{stroke:var(--muted);stroke-dasharray:.03 .03}
+.fsize{font-family:var(--f-mono);fill:var(--muted);text-anchor:middle;dominant-baseline:central;pointer-events:none;paint-order:stroke;stroke:var(--fur-fill);stroke-width:.3em;stroke-linejoin:round}
+svg.detail .dim text{paint-order:stroke;stroke:var(--sheet);stroke-width:.3em;stroke-linejoin:round}
+svg.detail .fur,svg.detail .door,svg.detail .ext{stroke-width:.012} svg.detail .glass{stroke-width:.025}
+.dlist{display:grid;gap:4px;font-size:14px;font-family:var(--f-display)}
+.dlist div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;border-bottom:1px solid var(--line);padding-bottom:3px}
+.dlist .num{font-family:var(--f-mono);font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.dhead{font-family:var(--f-display);font-size:20px;font-weight:700;line-height:1.2}
+/* svg element styles */
+.wall-ext{fill:var(--wall)} .wall-part{fill:var(--part)}
+.room{stroke:none}
+.fur{fill:var(--fur-fill);stroke:var(--fur);stroke-width:.025}
+.fur.rug{fill:none;stroke-dasharray:.08 .06}
+.fur.fireplace{fill:var(--terrace);stroke:var(--fur)}
+.fur.firebox{fill:var(--wall)}
+.fur.dark{fill:var(--part)}
+.ext{stroke:var(--fur);stroke-width:.025}
+.lbl{font-family:var(--f-display);fill:var(--ink);text-anchor:middle}
+.lbl.sub{fill:var(--muted)}
+.dim line{stroke:var(--ink);stroke-width:.025}
+.dim text{font-family:var(--f-mono);fill:var(--ink);text-anchor:middle}
+.glass{stroke:var(--glass);stroke-width:.04}
+.door{fill:none;stroke:var(--ink);stroke-width:.022}
+.lt{fill:var(--sun);stroke:var(--ink);stroke-width:.02}
+.lt-line{stroke:var(--sun);stroke-width:.09;stroke-linecap:round}
+.lt-line.dash{stroke-dasharray:.18 .1}
+[data-tip]{cursor:help}
+[data-tip]:hover{filter:drop-shadow(0 0 .06px var(--accent))}
+.hl{outline:none}
+.sunpatch{fill:var(--sun-glow)}
+.shadow{fill:var(--shade)}
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.sw{border:1px solid var(--line);background:var(--sheet)}
+.sw b{display:block;height:58px}
+.sw div{padding:8px 10px;font-family:var(--f-display);font-size:13px;line-height:1.35}
+.sw div span{color:var(--muted);display:block;font-size:12px}
+ol.steps{list-style:none;padding:0;margin:0;display:grid;gap:0;counter-reset:s;border-top:1px solid var(--line)}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+ol.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--f-mono);color:var(--accent);font-size:20px}
+ol.steps b{font-family:var(--f-display);font-weight:680}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);background:var(--sheet);padding:14px 16px;min-width:0}
+.card h3{margin-top:0}
+footer{padding-block:28px;font-family:var(--f-display);font-size:13px;color:var(--muted)}
+code{font-family:var(--f-mono);font-size:.88em}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<style>
+.qa{display:grid;gap:0;border-top:1px solid var(--line)}
+.qa details{border-bottom:1px solid var(--line);padding:12px 0}
+.qa summary{cursor:pointer;font-family:var(--f-display);font-weight:680;font-size:18px;list-style:none;display:flex;gap:12px;align-items:baseline}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::before{content:"+";font-family:var(--f-mono);color:var(--accent);width:14px;flex:none}
+.qa details[open] summary::before{content:"−"}
+.qa summary .ans{font-family:var(--f-body);font-weight:400;font-size:16px;color:var(--muted)}
+.qa .body{padding:10px 0 4px 26px;display:grid;gap:8px}
+.verdict{font-family:var(--f-display);font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border:1px solid currentColor;white-space:nowrap}
+.verdict.ok{color:var(--good)} .verdict.warn{color:var(--warn)} .verdict.no{color:var(--crit)}
+</style>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Návrh v6 · 18. 10. 2026 · přízemní dům pro rodinu 2 + 2</div>
+  <h1>Dům Karviná <span class="pc">2904/26</span></h1>
+  <p class="lead">Verze v6 vychází z v5, která je i se simulací v Unreal Engine uložená v archivu. Obytné křídlo s obývákem, jídelnou a kuchyní je o 0,40 m užší (5,50 místo 5,90 m, světle 4,60 m) a dům je díky tomu od východní komunikace 3,05 m. Ostatní místnosti zůstaly beze změny. Slunce je spočítané pro skutečnou polohu parcely podle katastru.</p>
+  <dl class="facts" id="facts"></dl>
+  <nav class="toc" aria-label="Obsah">
+    <a href="#odpovedi">Vaše otázky</a><a href="#pozemek">Pozemek a garáž</a><a href="#rozmery">Rozměry</a><a href="#pudorys">Půdorys a slunce</a><a href="#detail-mistnosti">Detail místností</a>
+    <a href="#interier">Interiér</a><a href="#prosklení">Světlo a okna</a><a href="#osvetleni">Osvětlení</a>
+    <a href="#technika">Technika</a><a href="#simulator">Simulátor UE5</a><a href="#otazky">Další kroky</a>
+  </nav>
+</header>
+
+<section id="odpovedi">
+  <div class="sh"><span class="code">0</span><h2>Co se změnilo ve v6</h2></div>
+  <div class="qa">
+    <details open><summary><span class="verdict ok">Hotovo</span> Vstup, pokoj 1.04, terasa 5 × 3 m a okna 2,00 m</summary><div class="body">
+      <p><b>Vchodové dveře</b> jsou o 10 cm víc vlevo (k technické místnosti), s nimi se posunul chodník i světlo v závětří. Otevřené křídlo teď míjí skříň v zádveří o 12 cm a od dveří do technické místnosti zůstává 10 cm.</p>
+      <p><b>Pokoj 1.04:</b> skříň a postel si vyměnily místa. <b>Skříň 3,10 m</b> stojí na východní stěně a končí 15 cm pod dveřmi, takže se dveře otevírají volně a mezi skříní a zárubní zbývá místo na vypínač. Postel 90 × 200 je podél západní stěny, hlavou ke stěně s pokojem 1.05. Stůl zůstal uprostřed pod oknem a knihovna mezi stolem a postelí.</p>
+      <p><b>Terasa má 5,00 × 3,00 m (15,0 m²)</b>: přidaných 15 cm je na západní straně, kam se posunul i sloup a okraj střechy. <b>Stůl s šesti křesly stojí uprostřed</b>, jeho střed je 2,50 m od kraje terasy. Před HS portálem z obýváku zůstává 1,6 m a podél domu před HS ložnice volný pruh 0,95 m.</p>
+      <p><b>Okna na východ</b> v kuchyni i u jídelny mají obě 2,00 m na šířku (dřív 2,20 a 1,80 m). Kuchyňské má střed na stejném místě, jídelní je dole zarovnané blíž ke stolu.</p></div></details>
+    <details open><summary><span class="verdict ok">Hotovo</span> Užší chodba (1,20 m), větší ložnice a pokoj 1.05</summary><div class="body">
+      <p>Chodba má teď na šířku <b>1,20 m místo 1,30 m</b>. Příčka mezi chodbou a horní řadou se posunula o 10 cm k ulici, takže <b>pokoj 1.05 (4,50 × 3,10 m, 14,0 m²) i ložnice (4,90 × 3,10 m, 15,2 m²) jsou o 10 cm hlubší</b>. Skříně zády k sobě jdou dál přes celou stěnu a mají 3,10 m. Dveře do obou místností jsou dál 10 cm od skříně.</p>
+      <p>Pokoj 1.04 sahá až k téže příčce, proto je o 10 cm kratší (2,65 × 4,90 m, 13,0 m²). Jeho dveře se posunuly spolu s příčkou, skříň má teď 3,10 m na východní stěně. Užitná plocha se nezměnila (<span class="js-area">121,3</span> m²). Chodba 1,20 m pohodlně stačí i pro rozevřené dveře 80.</p>
+      <p>Průchod z chodby do obytného prostoru je teď <b>přes celou šířku chodby, 1,20 m</b> a až ke stropu. Dřív měl 1,10 m a vedle něj zůstal 10cm pilířek, který po zúžení chodby neměl smysl. Prosklené posuvné dveře zajíždějí do pouzdra ve stěně směrem k ložnici. Stěna je nosná, takže nad otvorem bude překlad a pouzdro navrhne statik.</p></div></details>
+    <details open><summary><span class="verdict ok">Hotovo</span> Užší obývák s jídelnou a kuchyní (5,50 m)</summary><div class="body">
+      <p>Obytné křídlo má zvenku <b>5,50 m místo 5,90 m</b>, uvnitř 4,60 m (ve v5 5,00 m). Ubrala se východní stěna, takže dům je od východní komunikace <b>3,05 m</b> (ve v5 2,65 m). Tím splňuje i doporučení ze smlouvy, aby průčelí bylo 3 m od komunikace. Užitná plocha klesla o 4,5 m² na <span class="js-area">121,3</span> m², obývák s jídelnou a kuchyní má 51,3 m².</p>
+      <p>Nábytek se přizpůsobil: linka je 3,95 m dlouhá a okno za ní 3,30 × 1,83 m (ve v5 3,50 m), ostrov 2,00 × 1,00 m s průchodem 1,05 m k vysokým skříním a 0,90 m ke stěně, jídelní stůl 220 × 95 pro šest je o 10 cm blíž ke krbu a od stěny s oknem má 1,00 m. Sedačka do L má dlouhou stranu 3,00 m a od televize je 2,45 m. Krb, HS portál, okna do zahrady a k jídelně zůstaly, kde byly.</p></div></details>
+    <h3 style="margin:18px 0 6px">Změny ve v5 (rozměry v textu platí pro v5)</h3>
+    <details><summary><span class="verdict ok">Hotovo</span> Dům delší o 0,90 m, technická místnost vedle zádveří</summary><div class="body">
+      <p>Aby se vešla technická místnost i plná koupelna, je dům delší o 0,90 m (15,70 m). Obytné křídlo se posunulo na východ a od východní hranice je 2,65 m (minimum 2 m). Podél ulice jsou zleva pokoj 1.04, <b>koupelna 2,60 × 3,55 m (9,2 m²)</b>, <b>technická místnost 2,00 × 2,75 m (5,5 m²)</b> a zádveří.</p>
+      <p>Do technické místnosti se vchází ze zádveří a dveře se otevírají dovnitř. Zásobník 300 l, sloupec pračky se sušičkou a <b>umyvadlo</b> stojí na stěně ke koupelně, takže sdílejí rozvody vody a odpadu. Hydrobox TČ, rekuperace a rozvaděč visí na stěnách a uprostřed zbývá místo na koš a sušák.</p></div></details>
+    <details><summary><span class="verdict ok">Hotovo</span> Pokoje 1.04 a 1.05 prohozené, větší ložnice</summary><div class="body">
+      <p>Nahoře (k zahradě) je pokoj 1.05 (4,50 × 3,10 m, 14,0 m²) vedle ložnice, dole u ulice pokoj 1.04 (2,65 × 5,00 m, 13,3 m²), který využívá i konec chodby. Oba mají stejný nábytek: <b>skříň 3,00 m přes celou stěnu jako v ložnici</b>, postel 90 × 200, stůl 140 pod oknem, knihovnu a koberec.</p>
+      <p>Dveře do pokoje 1.05 a do ložnice jsou zrcadlově stejné: obě 10 cm od skříně a otvírají se ke skříni, takže v obou místnostech zůstane za otevřenými dveřmi stejně místa. Proto je příčka mezi nimi o 10 cm dál k ložnici. Dveře do pokoje 1.04 jsou na konci chodby u pokoje 1.05 a otvírají se ke společné stěně. Skříň 3,10 m stojí na východní stěně, postel podél západní stěny a okno se stolem jsou uprostřed jižní stěny.</p>
+      <p>Ložnice má 4,90 × 3,00 m (14,7 m²): skříň přes celou stěnu zády ke skříni v pokoji 1.05 (dobře tlumí zvuk), postel čelem u nosné stěny a HS portál na terasu. Terasa je jen před ložnicí, má 4,85 × 3,00 m.</p></div></details>
+    <details><summary><span class="verdict ok">Úspora</span> Zpátky na 126 m²</summary><div class="body">
+      <p>Prodloužení o 0,90 m přidalo 5,4 m². Aby plocha zůstala kolem 126 m², jsou pokoj 1.05, ložnice i obývací část o 0,40 m mělčí. Koupelna, technická místnost, kuchyň a jídelna zůstaly beze změny. Pokoje k zahradě mají 3,00 m do hloubky. Pokoj 1.05 se rozšířil, takže oba dětské pokoje mají přes 13 m². Ložnice má 14,7 m², o 1,6 m² víc než ve v4. Od sedačky k televizi zůstává 2,5 m, za sedačkou k jídelním židlím 1,4 m. Hlavní trakt má teď 15,70 × 9,05 m, obytné křídlo vede 12,05 m do zahrady.</p></div></details>
+    <details><summary><span class="verdict ok">Hotovo</span> Závětří zapuštěné 0,80 m, všechny dveře 80</summary><div class="body">
+      <p>Vstup a technická místnost jsou zapuštěné 0,80 m za uliční fasádou, stejně jako u vzorového domu PROGRES LUX. Závětří má 3,80 × 0,80 m pod střechou. Zádveří je proto kratší (1,85 × 2,75 m), skříň přes celou stěnu zůstala.</p>
+      <p>Všechny vnitřní dveře jsou stejné: <b>80 cm</b> (stavební otvor 0,90 m, výška 1,97 m), i do koupelny a technické místnosti.</p></div></details>
+    <details><summary><span class="verdict ok">Hotovo</span> Sedačka dál od televize, menší okno u jídelny</summary><div class="body">
+      <p>Sedačka je o 40 cm dál, od televize je teď 2,5 m (pro 65″ ideální). Za opěradlem zůstává k jídelním židlím 1,8 m. Okno u jídelny je užší (1,80 místo 2,40 m) a posunuté o 60 cm k ulici, blíž ke stolu.</p></div></details>
+    <details><summary><span class="verdict ok">Hotovo</span> Krb jako betonový sloup, pásové okno v koupelně</summary><div class="body">
+      <p><b>Krb</b> má podobu sloupu 1,20 × 0,70 m od podlahy až ke stropu, ve stěrce v betonovém vzhledu jako na vaší fotce. Rohová vložka má sklo zepředu i z boku: oheň je vidět z obýváku i z jídelny. Vedle ní je úzká svislá nika na dřevo, nahoře na boku větrací mřížka a revizní dvířka a před vložkou ocelová deska na podlaze. Komín vede uvnitř sloupu. Krb je o 50 cm blíž k jídelně než ve v4. Okno v koupelně je teď <b>fixní pásové okno z jednoho kusu 2,20 × 0,50 m</b> s horní hranou ve výšce 2,40 m v linii se vstupními dveřmi (parapet 1,90 m), jako na vaší fotce. Koupelnu větrá rekuperace a díky výšce okna je soukromí od ulice zachované: z ulice není vidět dovnitř, světlo jde po stropě do celé koupelny a stěny pod ním zůstávají volné pro obklad, vanu a umyvadla.</p></div></details>
+    <details><summary><span class="verdict ok">Návrh</span> Nábytek na terasu</summary><div class="body">
+      <p>Terasa 5,00 × 3,00 m má uprostřed <b>jídelní kout</b>: teakový stůl 180 × 90 cm na antracitové hliníkové podnoži a šest křesel s výpletem z lana a teakovými područkami. Na stole je prostřeno pro šest. Před HS portálem z obýváku zůstává 1,6 m. Večer sem svítí slunce ze západu (21. 6. v 18 hodin z azimutu 277°).</p>
+      <p>Podél domu zůstává mezi oběma HS portály volný pruh 0,95 m a před portálem z obýváku 0,90 m, takže se dá projít, i když u stolu někdo sedí. U sloupu je velký květináč s olivovníkem, u ložnice květináč s okrasnou trávou. Barvy ladí s domem: antracit jako okna, teak jako podbití. Polštáře jsou světle šedé z venkovní akrylové tkaniny, dekorační polštář je oranžový jako v obýváku.</p></div></details>
+    <details open><summary><span class="verdict ok">Ověřeno</span> Kontrola výpočtů, orientace a slunce (v6)</summary><div class="body">
+      <p><b>Plochy:</b> každá místnost i součet 121,3 m² sedí na centimetr. Obrys domu je beze zbytku vyplněný zdmi a místnostmi, bez děr a překryvů. Zdi zabírají 30,6 m², tj. 20 % zastavěné plochy domu (151,9 m², s krytou terasou 166,5 m²). Nábytek nikde nezasahuje do zdí ani do sebe. Všechny vnitřní dveře mají otvor 0,90 m (křídlo 80 cm).</p>
+      <p><b>Pozemek:</b> parcela vychází z katastru 1 215,7 m² (ČÚZK uvádí 1 216 m²). Dům je 6,45 m od ulice, 3,05 m od východní komunikace, 10,3 m od souseda na západě a 24 m od severní hranice. Budoucí garáž je posunutá o 5 cm, aby měla 2,04 m od západní hranice (minimum 2 m). Index zastavění podle územního plánu (stavby i zpevněné plochy) je 20,8 % (maximum 40 %), zeleň 79 % (minimum 40 %).</p>
+      <p><b>Orientace:</b> souřadnice parcely ze služby ČÚZK ve WGS84 dávají azimut uliční hrany 57,11°. Návrh počítá s 57,1° a simulátor s 57,04°. Uliční fasáda tedy míří na 147° (JJV), zahrada na 327° (SSZ).</p>
+      <p><b>Slunce:</b> stránka a simulátor používají dva různé astronomické algoritmy (Astronomical Almanac a NOAA) a liší se nejvýš o 0,02°. Hodnoty v simulátoru UE (např. 20. 4. v 11:00 výška 46°, azimut 142°) sedí na zaokrouhlení. Poledne 21. 6. je ve 12:48 letního času s výškou 63,6°, analyticky 90° − 49,875° + 23,44° = 63,56°. Letní čas se přepíná správně.</p></div></details>
+    <details><summary><span class="verdict ok">Odsouhlaseno</span> Kamna na vnitřní stěně, televize na severní stěně</summary><div class="body">
+      <p>Televize nad kamny by trpěla teplem, visela by vysoko a oheň s obrazem by si konkurovaly. Kamna proto stojí na vnitřní nosné stěně mezi jídelnou a obývákem, komín vychází u hřebene a televize je na severní stěně, otočená o 90°.</p></div></details>
+    <details><summary><span class="verdict ok">Hotovo</span> Technická místnost s prádelnou</summary><div class="body">
+      <p>Má 2,00 × 2,75 m u zádveří: zásobník TUV 300 l, sloupec pračky se sušičkou a umyvadlo na stěně ke koupelně, hydrobox na čelní stěně, rekuperace a rozvaděč na stěně k zádveří. K ložnici už nepřiléhá.</p></div></details>
+    <details><summary><span class="verdict warn">Bez velké rezervy</span> Rozpočet 7 mil. Kč</summary><div class="body">
+      <p>Kuchyň a zahrada jsou mimo rozpočet. Užitná plocha je <span class="js-area">125,8</span> m², což je proti 120 m² orientačně o 0,3–0,4 mil. Kč víc. Do rozpočtu patří kamna, přípojky k domu, projekt a inženýring, vjezd a zpevněné plochy, případně garáž. Nechte si projekt nacenit od 2–3 firem a držte 10 % rezervu. Šetří se tím, že jsou jen dva HS portály a jinde fixní zasklení.</p></div></details>
+  </div>
+</section>
+
+<section id="pozemek">
+  <div class="sh"><span class="code">A</span><h2>Pozemek, natočení a garáž</h2></div>
+  <div class="cols">
+    <div class="sheet"><svg class="plan" id="site" role="img" aria-label="Situace pozemku s domem, garáží a stínem"></svg>
+      <div class="legend"><span><i style="background:var(--road)"></i>komunikace 2904/7</span><span><i style="background:var(--f-living)"></i>dům</span><span><i style="background:var(--paving)"></i>garáž a zpevněné plochy</span><span><i style="background:var(--shade)"></i>stín v nastaveném čase</span><span><i style="background:var(--accent)"></i>vrstevnice po 0,25 m a výšky v m n. m.</span><span><i style="background:var(--good)"></i>dešťová voda, vsak, příkop</span></div>
+    </div>
+    <div>
+      <ul class="pts">
+        <li><b>Parcela 1 216 m²</b>, téměř přesný obdélník 28,65 × 42,1–42,75 m (souřadnice z ČÚZK). Komunikace je na jihu i na východě, na severu volná plocha 2905/1, na západě sousední stavební parcela 2904/27.</li>
+        <li><b>Natočení:</b> uliční fasáda míří na azimut <b>147° (JJV)</b>. Obytné křídlo má ranní slunce z VSV, kuchyň polední slunce z JJV a terasa se severními skly v létě večerní slunce.</li>
+        <li><b>Dům</b> stojí 6,45 m od ulice (vstup v závětří 7,25 m) a 3,05 m od východní komunikace (živý plot a strom). Zahrada za domem je hluboká 23,5 m.</li>
+        <li><b>Terén</b> (ČÚZK DMR 5G): pozemek klesá od JV rohu k SZ asi o 1,7 m. Navržená podlaha ±0,000 = 250,25 m n. m., terasa bude asi 1,1 m nad zahradou.</li>
+        <li><b>Budoucí dvojgaráž Gardeon 5,80 × 5,86 m</b> se širokými vraty stojí vlevo, 2,05 m od západní hranice a 2,45 m od domu. Vrata jsou v jedné linii s uliční fasádou domu. Před nimi je 6,45 m na stání návštěvy, do té doby slouží plocha jako dvě parkovací místa. Plochá střecha (odsouhlaseno) je nižší, nebere světlo pokoji 1.04 a nekonkuruje valbě domu. Fasádu udělejte ve stejné omítce jako dům a vrata v barvě oken.</li>
+        <li><b>Sítě:</b> elektroměrový pilíř počítám posunutý na 10,7–11,3 m od JZ rohu, 3 m od vjezdu. Voda a kanalizace jsou připravené v JV rohu.</li>
+        <li><b>Regulativy z kupní smlouvy a územního plánu:</b> index zastavění max. 40 % včetně zpevněných ploch (dům, terasa, garáž, vjezd a chodník cca 21 %), zeleň min. 40 % (cca 79 %), min. 2 m od hranic, průčelí 3 m od komunikace (k ulici 6,45 m, k východní komunikaci 3,05 m).</li>
+      </ul>
+      <p class="note" style="margin-top:14px"><b>Garáž zahrňte do projektu domu už teď,</b> i když ji postavíte později. Ušetříte samostatné povolení a projektant ověří požární odstup od domu. Pokoj 1.04 kvůli garáži nemá západní okno, světlo dostává jižním oknem 1,90 m.</p>
+    </div>
+  </div>
+</section>
+
+<section id="rozmery">
+  <div class="sh"><span class="code">B</span><h2>Rozměry proti vašemu původnímu půdorysu</h2></div>
+  <p>Užitná plocha je <span class="js-area">125,8</span> m² (původně 119,0 m²). Pořadí místností zůstává z vašeho původního půdorysu.</p>
+  <div class="tbl"><table id="changes">
+    <thead><tr><th>#</th><th>Prvek</th><th class="num">Původně</th><th class="num">v6</th><th>Proč</th></tr></thead><tbody></tbody></table></div>
+  <h3>Bilance místností</h3>
+  <div class="tbl"><table id="rooms"><thead><tr><th>Č.</th><th>Místnost</th><th class="num">Rozměr v6</th><th class="num">m² v6</th><th class="num">m² původně</th><th class="num">Rozdíl</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section id="pudorys">
+  <div class="sh"><span class="code">C</span><h2>Půdorys v6, nábytek a slunce</h2></div>
+  <p>Posuňte datum a čas. Žlutá místa ukazují, kam v danou chvíli dopadá přímé slunce přes okna, šedá stín domu a garáže. Výpočet zahrnuje tloušťku zdí, valbovou střechu tvaru L s přesahem, terasu, garáž i natočení parcely. Najetím nebo klepnutím na prvek zobrazíte jeho popis.</p>
+  <div class="tool">
+    <div class="stage">
+      <div class="toolbar" role="group" aria-label="Vrstvy">
+        <label><input type="checkbox" id="lyFur" checked> Nábytek</label>
+        <label><input type="checkbox" id="lyLight"> Osvětlení</label>
+        <label><input type="checkbox" id="lyDim" checked> Kóty</label>
+        <label><input type="checkbox" id="lyRoof"> Střecha</label>
+        <label><input type="checkbox" id="lyUtil" checked> Sítě</label>
+        <label><input type="checkbox" id="lySun" checked> Slunce</label>
+        <label><input type="checkbox" id="lyLbl" checked> Popisky</label>
+      </div>
+      <svg class="plan" id="plan" role="img" aria-label="Půdorys 1. NP, návrh v6"></svg>
+      <div class="info" id="info" aria-live="polite">Najeďte nebo klepněte na nábytek, okno nebo svítidlo.</div>
+      <div class="legend"><span><i style="background:var(--sun-glow)"></i>přímé slunce na podlaze</span><span><i style="background:var(--shade)"></i>stín</span><span><i style="background:var(--glass)"></i>prosklení</span><span><i style="background:var(--sun)"></i>svítidla (vrstva Osvětlení)</span><span><i style="background:var(--crit)"></i>elektro</span><span><i style="background:var(--accent)"></i>voda</span><span><i style="background:var(--warn)"></i>kanalizace</span></div>
+    </div>
+    <div class="side">
+      <div class="ctrl">
+        <div class="row"><label for="date">Datum</label><span class="val" id="dateVal"></span></div>
+        <input type="range" id="date" min="1" max="365" value="80">
+        <div class="presets" id="presets"></div>
+      </div>
+      <div class="ctrl">
+        <div class="row"><label for="time">Čas (místní)</label><span class="val" id="timeVal"></span></div>
+        <input type="range" id="time" min="240" max="1320" step="5" value="540">
+        <div class="presets"><button id="play" aria-pressed="false">▶ Přehrát den</button></div>
+      </div>
+      <div class="ctrl">
+        <div class="row"><label for="eave">Přesah střechy</label><span class="val" id="eaveVal"></span></div>
+        <input type="range" id="eave" min="0.3" max="1.2" step="0.1" value="0.6">
+      </div>
+      <div class="sunread" id="sunread"></div>
+      <div>
+        <div class="row small" style="margin-bottom:6px">Přímé slunce v místnosti během vybraného dne</div>
+        <div class="bars" id="bars"></div>
+        <p class="small" style="margin:8px 0 0">Počítá se doba, kdy slunce osvětluje alespoň 0,25 m² podlahy. Budoucí domy sousedů a stromy nejsou zahrnuty, garáž ano.</p>
+      </div>
+    </div>
+  </div>
+  <h3>Přímé slunce v klíčových dnech (hodiny)</h3>
+  <div class="tbl"><table id="sunTable"><thead><tr><th>Místnost</th><th class="num">21. 12.</th><th class="num">1. 3.</th><th class="num">21. 3.</th><th class="num">21. 6.</th><th class="num">23. 9.</th></tr></thead><tbody><tr><td colspan="6" class="small">Počítám…</td></tr></tbody></table></div>
+  <p class="small" style="margin-top:8px">1. březen je referenční den pro proslunění podle ČSN 73 4301 (alespoň třetina obytných místností má mít 90 minut slunce). Tabulka je orientační, normový výpočet dělá projektant.</p>
+</section>
+
+<section id="detail-mistnosti">
+  <div class="sh"><span class="code">C2</span><h2>Detail místností s kótami</h2></div>
+  <p>Vyberte místnost. Černé kóty ukazují světlé rozměry místnosti a polohu oken a dveří od rohů. Modré kóty ukazují volné místo mezi nábytkem a ke stěnám. V nábytku je jeho velikost v centimetrech. Kóty jsou v metrech, k líci omítky.</p>
+  <div class="tool">
+    <div class="stage">
+      <div class="toolbar" role="group" aria-label="Místnost">
+        <div class="presets" id="dRooms"></div>
+      </div>
+      <div class="toolbar" role="group" aria-label="Vrstvy detailu">
+        <label><input type="checkbox" id="dyOpen" checked> Okna a dveře</label>
+        <label><input type="checkbox" id="dyGap" checked> Odstupy nábytku</label>
+        <label><input type="checkbox" id="dySize" checked> Rozměry nábytku</label>
+      </div>
+      <svg class="plan detail" id="detail" role="img" aria-label="Detail vybrané místnosti s kótami"></svg>
+      <div class="info" id="dInfo" aria-live="polite">Najeďte nebo klepněte na nábytek, okno nebo dveře.</div>
+    </div>
+    <div class="side" id="dSide"></div>
+  </div>
+</section>
+
+<section id="interier">
+  <div class="sh"><span class="code">D</span><h2>Interiér: světlý a teplý</h2></div>
+  <p>Světlé vápenné omítky, světlý dub a kámen odrážejí denní světlo hluboko do místností. Nábytek je nízký, aby od stolu i ze sedačky zůstal výhled ven. Obytný prostor 4,60 × 11,15 m má tři zóny bez příček: kuchyň u vstupu, jídelnu uprostřed u velkého východního okna a obývák se zahradou a terasou.</p>
+  <div class="two">
+    <div class="card"><h3>Kuchyň</h3><p>Stěna vysokých skříní v dubové dýze bez úchytek s rohovou spíží, linka 3,95 m a nad ní okno z jednoho kusu skla 3,30 × 1,83 m, které začíná přímo na pracovní desce a nahrazuje obklad za linkou a ostrov 2,00 × 1,00 m bez sezení, se zásuvkami z obou stran. Jídelní stůl stojí 1,4 m od něj, takže se jídlo podává rovnou z ostrova na stůl a za židlemi se pohodlně projde. Varná deska je v ostrově s odsáváním do desky. Nad hlavou tak nevisí digestoř a výhled zůstane volný.</p>
+      <p class="small">Odsávání musí být recirkulační. V těsném domě s rekuperací a kamny by digestoř odsávající ven vytvořila podtlak a mohla by z kamen natáhnout spaliny.</p></div>
+    <div class="card"><h3>Okno nad linkou</h3><p>Fixní okno z jednoho kusu skla 3,30 × 1,83 m jde od pracovní desky až do stropu, bez parapetu a bez obkladu. Deska z keramiky nebo kamene zasahuje do ostění až ke sklu. Spodní hranu skla je potřeba usadit do rámu zapuštěného pod úroveň desky a utěsnit proti vodě od dřezu. Sklo za linkou se myje stejně snadno jako skleněný obklad.</p>
+      <p class="small">Okno se neotevírá, a protože kuchyňské prosklení na východě je taky fixní, větrá kuchyň rekuperace. Sklo váží kolem 180 kg a ven se myje z venku. Baterie u dřezu musí být stojánková, ne nástěnná. Proti letnímu slunci z JJV ho chrání venkovní žaluzie.</p></div>
+    <div class="card"><h3>Jídelna</h3><p>Dubový stůl 220 × 95 pro šest ve dvou řadách po třech u východního okna 2,00 m. Ráno sem svítí slunce, večer je hned vedle teplo z kamen. Nad stolem lineární svítidlo, na nosné stěně světelná spára.</p></div>
+    <div class="card"><h3>Obývák</h3><p>Rohová sedačka do L: dlouhá strana 3,00 m čelem k televizi, kratší strana 2,00 m podél plné východní stěny. Televize 65″ visí na severní stěně, pod ní je zavěšená skříňka 240 cm s LED podsvícením 30 cm nad podlahou a za nimi dřevěný obklad v dekoru dubu. Od sedačky k televizi je 2,45 m, pro 65″ ideální vzdálenost. Vlevo od televize je okno do zahrady, kamna a HS portál na terasu jsou za levým ramenem sedačky.</p></div>
+    <div class="card"><h3>Dětské pokoje a koupelna</h3><p>Oba pokoje mají přes 13 m² a stejný nábytek: velkou skříň přes stěnu (v 1.05 3,10 m na stěně k ložnici, v 1.04 3,10 m na východní stěně), postel 90 × 200 podél stěny, psací stůl 140 čelem k oknu (světlo zepředu, bez stínu od ruky), knihovnu a koberec na hraní.</p>
+      <p>Koupelna 2,60 × 3,55 m (9,2 m²) podle vašeho náčrtu: vlevo žebřík u dveří, deska 140 se dvěma umyvadly a WC, vpravo sprchový kout 100 × 100 v horním rohu a vana 180 × 80 v dolním rohu. Dveře 80 jsou na stěně u chodby a otevírají se ke sprše. Mezi umyvadly a vanou zbývá 1,32 m.</p></div>
+  </div>
+  <h3>Materiály</h3>
+  <div class="swatches" id="swatches"></div>
+</section>
+
+<section id="prosklení">
+  <div class="sh"><span class="code">E</span><h2>Co nejvíc světla</h2></div>
+  <div class="cols">
+    <div class="tbl"><table id="openings"><thead><tr><th>Ozn.</th><th>Místnost</th><th class="num">Azimut</th><th>Popis</th><th>Stínění</th></tr></thead><tbody></tbody></table></div>
+    <div>
+      <ul class="pts">
+        <li><b>Okna až do stropu.</b> Pod valbovou střechou je rovný strop, nadpraží se schová do věnce. Bez pásu zdiva nad oknem dopadá světlo hlouběji do místnosti a je to nejlevnější způsob, jak získat víc denního světla.</li>
+        <li><b>Fixní zasklení všude, kde se nechodí ven.</b> Na stejnou cenu dá víc skla než HS portál a lépe izoluje. Otvíravá jsou jen dvě HS na terasu a jeden díl v jídelně na větrání.</li>
+        <li><b>Sklo podle světelné propustnosti:</b> trojsklo Ug 0,5–0,6, teplý rámeček a <b>LT alespoň 70 %</b>. Úzké rámy, rohové SV zasklení bez sloupku.</li>
+        <li><b>Světlovod nebo střešní okno do chodby.</b> Pod valbou je půda, tubusový světlovod se do ní vejde snadno a chodba bez okna bude přes den světlá.</li>
+        <li><b>Světlé povrchy:</b> stěny s odrazností kolem 80 %, světlý dub a světlý strop vrátí do místnosti víc světla než tmavé materiály.</li>
+        <li><b>Venkovní žaluzie na všech oknech a HS portálech</b> (vstupní dveře je nemají). Lamely typu C80 nebo Z90 s motorem, na jižních a východních oknech řízené automaticky podle polohy slunce a větru. Na severu a u terasy slouží hlavně k zatemnění a soukromí, na fasádě budou všechny stejné.</li>
+        <li><b>Boxy žaluzií</b> se schovají do zateplení nad oknem (podomítkové boxy, výška kolem 25 cm). Okna jdou až do stropu, proto musí projektant počítat s boxem v nadpraží nad úrovní stropu nebo v přesahu střechy. Na velká skla (kuchyň 3,30 m, jídelna 2,00 m) volte jeden pás žaluzie, ať je pohled ven bez svislých předělů.</li>
+        <li><b>Přesah valby 0,6 m</b> stíní v létě v poledne horní část jižních oken (vyzkoušejte posuvník v nástroji). Simulace slunce počítá se žaluziemi vytaženými nahoru.</li>
+        <li><b>Méně skel tam, kde nebyla potřeba:</b> východní stěna obýváku je plná a jídelní okno je užší. Obývák je soukromější od komunikace a méně se přehřívá.</li>
+        <li><b>Pokoj 1.05</b> má jedno západní okno 1,60 × 1,95 m, pokoj 1.04 jižní okno 1,80 × 1,95 m uprostřed stěny. Technická místnost má v závětří malé sklopné okno 0,50 × 0,60 m. Horní hrany obou oken jsou v jedné linii se vstupními dveřmi (2,40 m).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="osvetleni">
+  <div class="sh"><span class="code">F</span><h2>Osvětlení</h2></div>
+  <p>Polohu všech svítidel ukazuje vrstva „Osvětlení“ v půdorysu. Návrh stojí na několika pravidlech:</p>
+  <div class="two">
+    <div class="card"><h3>Vrstvy světla</h3><p>Každý prostor má nepřímé ambientní světlo, pracovní světlo tam, kde se něco dělá, akcent (kamna, strom) a dekorativní lampy. Každá vrstva se stmívá zvlášť a strop nepokrývá rastr bodovek.</p>
+      <p>V obytném prostoru svítí světelná spára podél nosné stěny v jídelně, dva grazery na zdivo kamen a nepřímé světlo nad televizí. Večer se tak rozsvítí stěny místo stropu a prostor působí větší.</p></div>
+    <div class="card"><h3>Kvalita světla</h3><p>2700 K v obytných částech, 3000 K na pracovních plochách a v koupelně, 2200 K pro noční orientaci, v obýváku svítidla, která se při stmívání oteplují. Index podání barev CRI 90 a víc, u kuchyně a zrcadla 95. Hluboce zapuštěná svítidla s nízkým oslněním.</p>
+      <p>Řízení přes DALI-2 nebo KNX: scény Ráno, Vaření, Večeře, Večer u kamen, Film a Noc, čidla pohybu v chodbě, zádveří a koupelně.</p></div>
+  </div>
+  <h3>Hladiny a svítidla po místnostech</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Prostor</th><th class="num">Cíl</th><th class="num">Teplota</th><th>Svítidla</th></tr></thead>
+    <tbody>
+      <tr><td>Kuchyň, pracovní deska a ostrov</td><td class="num">500 lx</td><td class="num">3000 K</td><td>4 výklopné bodovce nad linkou, lineární závěs 1,8 m nad ostrovem, LED ve vysokých skříních</td></tr>
+      <tr><td>Jídelní stůl</td><td class="num">300 lx</td><td class="num">2700 K</td><td>Lineární závěs 1,6 m, 70 cm nad deskou, světelná spára na nosné stěně</td></tr>
+      <tr><td>Obývák</td><td class="num">100–200 lx</td><td class="num">2700→2200 K</td><td>Nepřímé světlo nad TV stěnou, 2 grazery na kamna, stojací a stolní lampa, bodovec u HS portálu</td></tr>
+      <tr><td>Chodba</td><td class="num">100 / 5 lx</td><td class="num">2700 / 2200 K</td><td>Lineární zapuštěné svítidlo, v noci jen orientační světla 30 cm nad podlahou s čidlem</td></tr>
+      <tr><td>Ložnice</td><td class="num">150 lx</td><td class="num">2400–2700 K</td><td>Nepřímé světlo za čelem postele, 2 čtecí lampičky, difuzní stropní svítidlo, LED ve skříni</td></tr>
+      <tr><td>Dětské pokoje</td><td class="num">300 lx</td><td class="num">3000 K</td><td>Difuzní stropní svítidlo, lampa na psacím stole (500 lx na desce)</td></tr>
+      <tr><td>Koupelna</td><td class="num">300 lx</td><td class="num">3000 K</td><td>Zrcadlo s čelním světlem (CRI 95), IP65 bodovce nad vanou a ve sprše, noční světlo v soklu</td></tr>
+      <tr><td>Zádveří</td><td class="num">150 lx</td><td class="num">2700 K</td><td>2 bodovce s čidlem, LED ve skříni a nad lavicí</td></tr>
+      <tr><td>Technická místnost</td><td class="num">300 lx</td><td class="num">4000 K</td><td>Lineární přisazené svítidlo</td></tr>
+      <tr><td>Exteriér</td><td class="num">—</td><td class="num">2700 K</td><td>4 podhledové bodovce na terase, světlo ve stříšce nad vstupem, cloněné sloupky u chodníku, světlo na garáži, nasvícení stromu</td></tr>
+    </tbody></table></div>
+</section>
+
+<section id="technika">
+  <div class="sh"><span class="code">G</span><h2>Technika domu</h2></div>
+  <div class="two">
+    <div class="card"><h3>Tepelné čerpadlo vzduch–voda</h3><p>Venkovní jednotka stojí v předzahrádce asi 3,5 m před koupelnou za lamelovou clonou a od oken pokojů je přibližně 4 m. Výfuk vzduchu míří do ulice. Je na konzole 30–50 cm nad terénem kvůli sněhu a kondenzát odtéká do štěrkové jímky. Výkon určí výpočet tepelných ztrát, orientačně 5–7 kW. Hluk u sousedů ověří projektant.</p></div>
+    <div class="card"><h3>Teplá voda pro čtyři</h3><p>Samostatný zásobník 300 l. Pro dva dospělé a dvě děti s vanou je to bezpečná velikost, kompaktní jednotky s vestavěným zásobníkem kolem 200 l by při napouštění vany nestačily. Ohřev přednostně přes den z fotovoltaiky.</p></div>
+    <div class="card"><h3>Rekuperace</h3><p>Jednotka 250–300 m³/h s entalpickým výměníkem vysoko na stěně technické místnosti. Rozvody vedou v tepelné izolaci nad stropem pod valbou, takže nejsou potřeba snížené podhledy. Přívod do pokojů, ložnice a obýváku, odtah z kuchyně, koupelny, technické místnosti a zádveří.</p></div>
+    <div class="card"><h3>Kamna v těsném domě</h3><p>Vložka s přívodem spalovacího vzduchu zvenku (potrubí v podlaze) a certifikací pro provoz s větráním, případně hlídač podtlaku. Detektor CO v obýváku. Komín ověří revize spalinové cesty podle ČSN 73 4201.</p></div>
+    <div class="card"><h3>Fotovoltaika</h3><p>Jižní (JJV) plocha valby má asi 60 m², takže se na ni vejde 6–8 kWp. Panely v rovině střechy, ideálně celoplošně v barvě krytiny, ať valba zůstane klidná.</p></div>
+    <div class="card"><h3>Voda a elektro</h3><p>Dešťová voda: střecha → retenční nádrž 6–8 m³ v zahradě na zálivku → přepad do vsakovací jímky asi 6 m³ v SV rohu zahrady → přepad do příkopu za severní hranicí. Splňuje to Zásady prodeje (akumulace, využití, vsak). K vypouštění přepadu do příkopu na pozemku města je potřeba jeho souhlas a vsak má stát aspoň 2 m od hranice. Kabeláž pro žaluzie, řízení osvětlení, venkovní zásuvky, a chráničku a kabel pro wallbox do budoucí garáže hned při stavbě.</p></div>
+  </div>
+</section>
+
+<section id="simulator">
+  <div class="sh"><span class="code">H</span><h2>Simulátor v Unreal Engine 5.8</h2></div>
+  <p>Jakmile půdorys odsouhlasíte, postavíme na něm digitální dvojče domu a pozemku. Soubor <code>navrh_v6/dum_v6.json</code> obsahuje geometrii, okna, střechu, nábytek, svítidla, garáž i přesnou polohu na parcele, takže z něj lze model postavit automaticky.</p>
+  <ol class="steps">
+    <li><div><b>Zmrazit návrh a vybrat konkrétní výrobky.</b> Okna (rozměry, rámy, LT skla), podlahy, omítky, kamna, svítidla s fotometrickými daty IES, nábytek s 3D modely od výrobců. Bez toho realita nemůže vypadat 1:1.</div></li>
+    <li><div><b>Model jako jediný zdroj rozměrů.</b> Ideálně BIM (ArchiCAD nebo Revit) od projektanta, do UE přes Datasmith. Do té doby připravím Python skript pro editor UE, který postaví stěny, stropy, otvory, valbu a terén přímo z <code>dum_v4.json</code> a z rastru DMR 5G, který už je stažený.</div></li>
+    <li><div><b>Pozemek.</b> Výškopis ČÚZK DMR 5G (přesnost kolem 0,2 m), ortofoto, hranice parcel, komunikace a orientační objemy budoucích domů na sousedních parcelách kvůli stínům.</div></li>
+    <li><div><b>Slunce.</b> SunSky s pluginem Sun Position Calculator: 49,8749° s. š., 18,5507° v. d., časové pásmo Praha s letním časem, sever natočený tak, aby osa domu do zahrady mířila na 327,1°. Fyzikální kamera s pevnou expozicí, aby šly porovnávat dny a hodiny.</div></li>
+    <li><div><b>Materiály.</b> Naskenované vzorky skutečně vybraných materiálů s kalibrovaným albedem a sklo se skutečnou propustností světla.</div></li>
+    <li><div><b>Světlo.</b> Lumen s hardwarovým ray tracingem a MegaLights pro desítky umělých světel, IES profily skutečných svítidel a kontrola v Path Traceru. Čísla (lux, činitel denní osvětlenosti) ověříme ve validovaném nástroji jako DIALux evo nebo Radiance.</div></li>
+    <li><div><b>Ovládání.</b> Chůze v první osobě ve výšce vašich očí, otevírání dveří a HS portálů, volba data a času, scény osvětlení, měřák jasu a VR (Quest 3 přes PC), ve které nejlépe poznáte skutečné rozměry.</div></li>
+  </ol>
+  <div class="two" style="margin-top:20px">
+    <div class="card"><h3>Co simulátor zaručí</h3><p>Rozměry a proporce, polohu slunce a stínů v libovolný den a hodinu, rozložení denního i umělého světla a výhledy z oken. Potřebný hardware: grafika třídy RTX 4080/5080 a výš, 64 GB RAM.</p></div>
+    <div class="card"><h3>Co nezaručí</h3><p>Přesné barvy na nekalibrovaném monitoru, počasí a čistotu skel, budoucí domy sousedů a růst stromů a stavební tolerance (zdivo ±1–2 cm). Shoda s realitou stojí na tom, že se postaví přesně ty výrobky, které budou v modelu.</p></div>
+  </div>
+</section>
+
+<section id="otazky">
+  <div class="sh"><span class="code">I</span><h2>Co ještě potřebuji od vás</h2></div>
+  <ul class="pts">
+    <li><b>Odpověď k pilíři</b>, až ji dostanete. Do té doby počítám s polohou 10,7–11,3 m od JZ rohu.</li>
+    <li><b>Příkop za hranicí:</b> jeho přesnou polohu a souhlas města (vlastník 2905/1) s přepadem z vsakovací jímky.</li>
+    <li><b>Geodetické zaměření</b> před projektem: výškopis a přesná poloha vodoměrné a revizní šachty včetně hloubky dna. Model z katastru je jen orientační.</li>
+    <li><b>Odsouhlasení rozměrů v4.</b> Potom začneme se simulátorem v Unreal Engine.</li>
+  </ul>
+</section>
+<footer>Zdroje: ČÚZK INSPIRE (parcely 2904/26 a okolí), Zásady prodeje pozemků v lokalitě RD nad Vagónkou (Statutární město Karviná), gardeon.cz (rozměry dvojgaráží), ČÚZK DMR 5G (výškopis). Poloha slunce: astronomický výpočet pro 49,8749° N, 18,5507° E, rok 2027, čas Europe/Prague. Rozměry v metrech, světlé rozměry místností.</footer>
+</div>
+
+<script>
+const SPEC = {"meta":{"version":"v6","date":"2026-10-18","lat":49.87485,"lon":18.55071,"bearingX":57.1,"ceiling":2.75,"soffit":2.95,"eave":0.6,"width":15.3,"depthMain":8.5,"depthAll":11.5,"plotOffset":[10.3,7.0],"areaTotal":121.34,"areaOriginal":119.01,"footprint":166.93,"terrace":15.0,"timezone":"Europe/Prague","roofType":"valbová","areaLimit":120.0,"budgetCZK":7000000},"walls":[{"k":"ext","x0":0,"y0":-0.55,"x1":6.1,"y1":-0.1},{"k":"ext","x0":9.9,"y0":-0.55,"x1":15.3,"y1":-0.1},{"k":"ext","x0":6.1,"y0":0.25,"x1":9.9,"y1":0.7},{"k":"ext","x0":5.85,"y0":-0.1,"x1":6.1,"y1":0.7},{"k":"ext","x0":9.9,"y0":-0.1,"x1":10.25,"y1":0.7},{"k":"ext","x0":0,"y0":-0.55,"x1":0.45,"y1":8.5},{"k":"ext","x0":0,"y0":8.05,"x1":10.25,"y1":8.5},{"k":"ext","x0":9.8,"y0":8.5,"x1":10.25,"y1":11.5},{"k":"ext","x0":9.8,"y0":11.05,"x1":15.3,"y1":11.5},{"k":"ext","x0":14.850000000000001,"y0":-0.55,"x1":15.3,"y1":11.5},{"k":"bear","x0":10.0,"y0":0.7,"x1":10.25,"y1":8.05},{"k":"part","x0":3.25,"y0":3.45,"x1":10.0,"y1":3.6},{"k":"part","x0":0.45,"y0":4.8,"x1":10.0,"y1":4.95},{"k":"part","x0":3.1,"y0":-0.1,"x1":3.25,"y1":4.8},{"k":"part","x0":4.95,"y0":4.95,"x1":5.1000000000000005,"y1":8.05,"acoustic":true},{"k":"part","x0":5.85,"y0":0.7,"x1":6.0,"y1":3.45},{"k":"part","x0":8.0,"y0":0.7,"x1":8.15,"y1":3.45}],"rooms":[{"id":"1.01","name":"Zádveří","x0":8.15,"y0":0.7,"x1":10.0,"y1":3.45,"fill":"hall","lbl":[8.82,2.25],"lblFs":0.65,"w":1.85,"d":2.75,"area":5.09},{"id":"1.02","name":"Chodba","x0":3.25,"y0":3.6,"x1":10.0,"y1":4.8,"fill":"hall","lbl":[6.8,4.3],"w":6.75,"d":1.2,"area":8.1},{"id":"1.03","name":"Koupelna","x0":3.25,"y0":-0.1,"x1":5.85,"y1":3.45,"fill":"wet","lbl":[4.4,1.7],"lblSplit":true,"lblFs":0.85,"w":2.6,"d":3.55,"area":9.23},{"id":"1.04","name":"Pokoj","x0":0.45,"y0":-0.1,"x1":3.1,"y1":4.8,"fill":"room","lbl":[1.92,3.55],"lblSplit":true,"lblFs":0.85,"w":2.65,"d":4.9,"area":12.99},{"id":"1.05","name":"Pokoj","x0":0.45,"y0":4.95,"x1":4.95,"y1":8.05,"fill":"room","lbl":[3.4,7.65],"w":4.5,"d":3.1,"area":13.95},{"id":"1.06","name":"Ložnice","x0":5.1000000000000005,"y0":4.95,"x1":10.0,"y1":8.05,"fill":"room","lbl":[6.85,7.05],"w":4.9,"d":3.1,"area":15.19},{"id":"1.07","name":"Technická místnost + prádelna","short":"Tech.","x0":6.0,"y0":0.7,"x1":8.0,"y1":3.45,"fill":"tech","lbl":[7.1,1.62],"lblFs":0.65,"w":2.0,"d":2.75,"area":5.5},{"id":"1.08","name":"Obývací pokoj + jídelna + kuchyň","short":"Obývák · jídelna · kuchyň","x0":10.25,"y0":-0.1,"x1":14.850000000000001,"y1":11.05,"fill":"living","lbl":[12.75,3.5],"lblSplit":true,"w":4.6,"d":11.15,"area":51.29}],"original":{"1.01":["2,05 × 3,00",6.15],"1.02":["5,95 × 1,30",7.74],"1.03":["2,55 × 3,00",7.65],"1.04":["3,00 × 4,85",14.55],"1.05":["4,20 × 3,00",12.6],"1.06":["4,00 × 3,40",13.6],"1.07":["1,80 × 3,40",6.12],"1.08":["4,60 × 11,00",50.6]},"openings":[{"id":"O1","room":"1.08","wall":"N","a0":10.4,"a1":11.85,"sill":0,"head":2.75,"kind":"fix","label":"Fixní zasklení do zahrady 1,45 × 2,75 vedle HS portálu","inner":11.05,"outer":11.5,"width":1.45,"shading":"venkovní žaluzie"},{"id":"O2","room":"1.08","wall":"E","a0":4.9,"a1":6.9,"sill":0,"head":2.75,"kind":"fix","label":"Jídelna: zasklení 2,00 × 2,75 s otvíravým dílem, u jídelního stolu","inner":14.850000000000001,"outer":15.3,"width":2.0,"shading":"venkovní žaluzie"},{"id":"O3","room":"1.08","wall":"E","a0":0.95,"a1":2.95,"sill":0,"head":2.75,"kind":"fix","label":"Kuchyň: fixní zasklení 2,00 × 2,75 u ostrova","inner":14.850000000000001,"outer":15.3,"width":2.0,"shading":"venkovní žaluzie"},{"id":"O4","room":"1.08","wall":"S","a0":11.2,"a1":14.5,"sill":0.92,"head":2.75,"kind":"fix","label":"Fixní okno z jednoho kusu skla 3,30 × 1,83 přímo od pracovní desky (místo obkladu za linkou)","inner":-0.1,"outer":-0.55,"width":3.3,"shading":"venkovní žaluzie"},{"id":"O5","room":"1.08","wall":"W","a0":8.65,"a1":10.9,"sill":0,"head":2.75,"kind":"hs","slideFlip":true,"label":"HS portál obývák → krytá terasa 2,25 × 2,75","inner":10.25,"outer":9.8,"width":2.25,"shading":"venkovní žaluzie"},{"id":"O6","room":"1.06","wall":"N","a0":5.8,"a1":7.8,"sill":0,"head":2.75,"kind":"hs","label":"HS portál ložnice → krytá terasa 2,00 × 2,75","inner":8.05,"outer":8.5,"width":2.0,"shading":"venkovní žaluzie"},{"id":"O7","room":"1.05","wall":"W","a0":5.55,"a1":7.15,"sill":0.8,"head":2.75,"kind":"win","label":"Okno pokoj 1.05 západ 1,60 × 1,95 nad psacím stolem","inner":0.45,"outer":0.0,"width":1.6,"shading":"venkovní žaluzie"},{"id":"O8","room":"1.04","wall":"S","a0":0.875,"a1":2.675,"sill":0.8,"head":2.75,"kind":"win","label":"Okno pokoj 1.04 jih 1,80 × 1,95 uprostřed stěny nad psacím stolem","inner":-0.1,"outer":-0.55,"width":1.8,"shading":"venkovní žaluzie"},{"id":"O11","room":"1.07","wall":"S","a0":7.3,"a1":7.8,"sill":1.8,"head":2.4,"kind":"win","label":"Technická místnost: malé sklopné okno 0,50 × 0,60 m v závětří, horní hrana 2,40 m v linii se vstupními dveřmi","inner":0.7,"outer":0.25,"width":0.5,"shading":"venkovní žaluzie"},{"id":"O9","room":"1.03","wall":"S","a0":3.45,"a1":5.65,"sill":1.9,"head":2.4,"kind":"fix","label":"Koupelna: fixní pásové okno z jednoho kusu 2,20 × 0,50 m, horní hrana 2,40 m v linii se vstupními dveřmi, větrá rekuperace","inner":-0.1,"outer":-0.55,"width":2.2,"shading":"venkovní žaluzie"},{"id":"O10","room":"1.01","wall":"S","a0":8.25,"a1":9.35,"sill":0,"head":2.4,"kind":"entry","leaf":0.95,"frame":0.075,"label":"Vchodové dveře „100“: stavební otvor 1,10 × 2,40 m, rám 75 mm, křídlo 0,95 m se svislým prosklením, průchod cca 0,93 m, otevírají se dovnitř, panty u technické místnosti","inner":0.7,"outer":0.25,"width":1.1,"shading":null}],"idoors":[{"id":"D1","x0":8.25,"y0":3.45,"x1":9.15,"y1":3.6,"hinge":"x0","into":"-y","label":"Chodba → zádveří, dveře 80","leaf":0.8},{"id":"D2","x0":3.35,"y0":4.8,"x1":4.25,"y1":4.95,"hinge":"x1","into":"+y","label":"Chodba → pokoj 1.05, dveře 80, 10 cm od skříně, otevírají se ke skříni (stejně jako v ložnici)","leaf":0.8},{"id":"D3","x0":3.8,"y0":3.45,"x1":4.7,"y1":3.6,"hinge":"x1","into":"-y","label":"Chodba → koupelna, dveře 80, otevírají se ke sprchovému koutu","leaf":0.8},{"id":"D4","x0":3.1,"y0":3.85,"x1":3.25,"y1":4.75,"hinge":"y1","into":"-x","label":"Chodba → pokoj 1.04, dveře 80 u pokoje 1.05, křídlo se otevírá ke společné stěně s pokojem 1.05","leaf":0.8},{"id":"D5","x0":5.800000000000001,"y0":4.8,"x1":6.700000000000001,"y1":4.95,"hinge":"x0","into":"+y","label":"Ložnice: dveře 80, 10 cm od skříně, otevírají se ke skříni","leaf":0.8},{"id":"D6","x0":8.0,"y0":1.75,"x1":8.15,"y1":2.65,"hinge":"y1","into":"-x","label":"Zádveří → technická místnost, dveře 80, otevírají se do technické místnosti","leaf":0.8},{"id":"D7","x0":10.0,"y0":3.6,"x1":10.25,"y1":4.8,"hinge":null,"into":null,"label":"Průchod z chodby do obytného prostoru přes celou šířku chodby 1,20 × 2,75 (až ke stropu), prosklené posuvné dveře do pouzdra ve stěně k ložnici, nad otvorem překlad"}],"entrySwing":{"hinge":[8.325,0.7],"open":[8.325,1.65],"closed":[9.274999999999999,0.7],"frame":0.075},"furniture":[{"t":"rect","cat":"kuchyn","x0":10.25,"y0":0.45,"x1":10.9,"y1":3.45,"label":"Vysoké skříně 3,0 m: lednice s mrazákem, trouba a mikrovlnka ve výšce očí, 2× spíž","kind":"tall","rx":0.0},{"t":"rect","cat":"kuchyn","x0":10.25,"y0":-0.1,"x1":10.9,"y1":0.45,"label":"Rohová spíž / skříň na úklid","kind":"tall","rx":0.0},{"t":"rect","cat":"kuchyn","x0":10.9,"y0":-0.1,"x1":14.850000000000001,"y1":0.55,"label":"Pracovní linka 3,95 m, deska zasahuje až ke sklu","kind":"counter","rx":0.0},{"t":"rect","cat":"kuchyn","x0":12.45,"y0":0.0,"x1":13.25,"y1":0.45,"label":"Dřez pod oknem","kind":"sink","rx":0.06},{"t":"rect","cat":"kuchyn","x0":11.8,"y0":0.0,"x1":12.4,"y1":0.45,"label":"Myčka","kind":"appl","rx":0.0},{"t":"rect","cat":"kuchyn","x0":11.95,"y0":1.75,"x1":13.95,"y1":2.75,"label":"Ostrov 2,00 × 1,00 bez sezení, se zásuvkami z obou stran","kind":"island","rx":0.03},{"t":"rect","cat":"kuchyn","x0":12.2,"y0":1.85,"x1":13.0,"y1":2.35,"label":"Indukce s odsáváním do desky (recirkulace)","kind":"hob","rx":0.03},{"t":"rect","cat":"nabytek","x0":11.65,"y0":4.7,"x1":13.85,"y1":5.65,"label":"Jídelní stůl 220 × 95, 6 míst ve dvou řadách po třech, 1,4 m od ostrova","kind":"table","rx":0.08},{"t":"rect","cat":"nabytek","x0":11.78,"y0":4.15,"x1":12.26,"y1":4.62,"label":"","kind":"chair","rx":0.08},{"t":"rect","cat":"nabytek","x0":11.78,"y0":5.73,"x1":12.26,"y1":6.2,"label":"","kind":"chair","rx":0.08},{"t":"rect","cat":"nabytek","x0":12.51,"y0":4.15,"x1":12.99,"y1":4.62,"label":"","kind":"chair","rx":0.08},{"t":"rect","cat":"nabytek","x0":12.51,"y0":5.73,"x1":12.99,"y1":6.2,"label":"","kind":"chair","rx":0.08},{"t":"rect","cat":"nabytek","x0":13.24,"y0":4.15,"x1":13.72,"y1":4.62,"label":"","kind":"chair","rx":0.08},{"t":"rect","cat":"nabytek","x0":13.24,"y0":5.73,"x1":13.72,"y1":6.2,"label":"","kind":"chair","rx":0.08},{"t":"rect","cat":"nabytek","x0":10.25,"y0":6.75,"x1":10.95,"y1":7.95,"label":"Krb: sloup 1,20 × 0,70 m až do stropu ve stěrce v betonovém vzhledu, rohová vložka s ohněm zepředu i z boku, nika na dřevo, komín uvnitř","kind":"stove","rx":0.0},{"t":"rect","cat":"nabytek","x0":10.77,"y0":6.75,"x1":10.95,"y1":7.57,"label":"","kind":"firebox","rx":0.0},{"t":"rect","cat":"nabytek","x0":10.95,"y0":6.45,"x1":11.4,"y1":7.77,"label":"Ocelová deska na podlaze před vložkou (nehořlavá podlaha)","kind":"hearth","rx":0.0},{"t":"rect","cat":"nabytek","x0":11.85,"y0":11.0,"x1":14.850000000000001,"y1":11.05,"label":"Dřevěný obklad stěny za TV (dýha nebo lamely v dekoru dubu)","kind":"panel","rx":0.0},{"t":"rect","cat":"nabytek","x0":12.0,"y0":10.65,"x1":14.4,"y1":11.0,"label":"Zavěšená TV skříňka 240 × 35, 30 cm nad podlahou, LED podsvícení","kind":"media","rx":0.0},{"t":"rect","cat":"nabytek","x0":12.48,"y0":10.96,"x1":13.92,"y1":11.0,"label":"TV 65″ zavěšená na stěně, střed obrazu ve výšce cca 1,10 m","kind":"tv","rx":0.0},{"t":"rect","cat":"nabytek","x0":11.85,"y0":8.8,"x1":13.85,"y1":10.2,"label":"Koberec 200 × 140","kind":"rug","rx":0.0},{"t":"rect","cat":"nabytek","x0":11.850000000000001,"y0":7.6,"x1":14.850000000000001,"y1":8.55,"label":"Rohová sedačka do L – dlouhá strana 3,00 m čelem k TV, 2,45 m od televize","kind":"sofa","rx":0.1},{"t":"rect","cat":"nabytek","x0":13.900000000000002,"y0":8.55,"x1":14.850000000000001,"y1":9.6,"label":"Rohová sedačka do L – kratší strana 2,00 m podél východní stěny","kind":"sofa_e","rx":0.1},{"t":"rect","cat":"nabytek","x0":12.25,"y0":9.0,"x1":13.45,"y1":9.6,"label":"Konferenční stolek","kind":"ctable","rx":0.25},{"t":"rect","cat":"nabytek","x0":5.1000000000000005,"y0":4.95,"x1":5.7,"y1":8.05,"label":"Šatní skříň přes celou stěnu k pokoji 1.05 (3,10 m)","kind":"storage","rx":0.0},{"t":"rect","cat":"nabytek","x0":7.9,"y0":5.6,"x1":10.0,"y1":7.4,"label":"Postel 180 × 210, čelo u nosné stěny","kind":"bed","rx":0.05,"head":"E"},{"t":"rect","cat":"nabytek","x0":9.55,"y0":5.1,"x1":10.0,"y1":5.55,"label":"","kind":"night","rx":0.0},{"t":"rect","cat":"nabytek","x0":9.55,"y0":7.45,"x1":10.0,"y1":7.9,"label":"","kind":"night","rx":0.0},{"t":"rect","cat":"nabytek","x0":4.3500000000000005,"y0":4.95,"x1":4.95,"y1":8.05,"label":"Šatní skříň 3,10 m přes celou stěnu k ložnici (zády ke skříni v ložnici)","kind":"storage","rx":0.0},{"t":"rect","cat":"nabytek","x0":0.45,"y0":7.15,"x1":2.45,"y1":8.05,"label":"Postel 90 × 200 podél severní stěny","kind":"bed","rx":0.05,"head":"W"},{"t":"rect","cat":"nabytek","x0":0.45,"y0":5.65,"x1":1.1,"y1":7.05,"label":"Psací stůl 140 pod západním oknem","kind":"desk","rx":0.0},{"t":"circ","cat":"nabytek","cx":1.45,"cy":6.35,"r":0.22,"label":"Židle","kind":"stool"},{"t":"rect","cat":"nabytek","x0":1.05,"y0":4.95,"x1":2.05,"y1":5.3,"label":"Knihovna 100 × 35 na stěně k chodbě","kind":"storage","rx":0.0},{"t":"rect","cat":"nabytek","x0":1.75,"y0":5.55,"x1":3.25,"y1":6.95,"label":"Koberec 140 × 150, místo na hraní","kind":"rug","rx":0.0},{"t":"rect","cat":"nabytek","x0":2.5,"y0":0.6000000000000001,"x1":3.1,"y1":3.7,"label":"Šatní skříň 3,10 m na východní stěně (k chodbě a koupelně), mezi skříní a dveřmi 15 cm na vypínač","kind":"storage","rx":0.0},{"t":"rect","cat":"nabytek","x0":0.45,"y0":2.75,"x1":1.35,"y1":4.75,"label":"Postel 90 × 200 podél západní stěny, hlavou k pokoji 1.05","kind":"bed","rx":0.05,"head":"N"},{"t":"rect","cat":"nabytek","x0":1.075,"y0":-0.1,"x1":2.475,"y1":0.55,"label":"Psací stůl 140 uprostřed pod jižním oknem","kind":"desk","rx":0.0},{"t":"circ","cat":"nabytek","cx":1.775,"cy":0.85,"r":0.22,"label":"Židle","kind":"stool"},{"t":"rect","cat":"nabytek","x0":0.45,"y0":0.7,"x1":0.8,"y1":1.7,"label":"Knihovna 100 × 35 na západní stěně vedle stolu","kind":"storage","rx":0.0},{"t":"rect","cat":"nabytek","x0":1.45,"y0":1.2,"x1":2.45,"y1":2.6,"label":"Koberec 100 × 140, místo na hraní","kind":"rug","rx":0.0},{"t":"rect","cat":"koupelna","x0":4.85,"y0":2.45,"x1":5.85,"y1":3.45,"label":"Sprchový kout 100 × 100 v rohu, skleněná stěna","kind":"shower","rx":0.0,"glass":"SW"},{"t":"rect","cat":"koupelna","x0":5.05,"y0":-0.1,"x1":5.85,"y1":1.7,"label":"Vana 180 × 80 v pravém dolním rohu","kind":"bath","rx":0.1},{"t":"rect","cat":"koupelna","x0":3.25,"y0":1.0,"x1":3.73,"y1":2.4,"label":"Dvě umyvadla vedle sebe na desce 140, zrcadlo","kind":"vanity","rx":0.0},{"t":"rect","cat":"koupelna","x0":3.25,"y0":0.1,"x1":3.8,"y1":0.7,"label":"WC závěsné","kind":"wc","rx":0.12},{"t":"rect","cat":"koupelna","x0":3.25,"y0":2.65,"x1":3.37,"y1":3.3,"label":"Žebříkový radiátor u dveří","kind":"ladder","rx":0.0},{"t":"rect","cat":"terasa","x0":6.4,"y0":9.95,"x1":8.200000000000001,"y1":10.85,"label":"Jídelní stůl z teaku 180 × 90, hliníková podnož antracit, pro 6","kind":"table","rx":0.05},{"t":"rect","cat":"terasa","x0":6.460000000000001,"y0":9.45,"x1":6.98,"y1":9.93,"label":"Jídelní křeslo: hliník antracit, výplet z lana, teakové područky","kind":"chair","rx":0.06},{"t":"rect","cat":"terasa","x0":6.460000000000001,"y0":10.87,"x1":6.98,"y1":11.35,"label":"Jídelní křeslo: hliník antracit, výplet z lana, teakové područky","kind":"chair","rx":0.06},{"t":"rect","cat":"terasa","x0":7.040000000000001,"y0":9.45,"x1":7.5600000000000005,"y1":9.93,"label":"Jídelní křeslo: hliník antracit, výplet z lana, teakové područky","kind":"chair","rx":0.06},{"t":"rect","cat":"terasa","x0":7.040000000000001,"y0":10.87,"x1":7.5600000000000005,"y1":11.35,"label":"Jídelní křeslo: hliník antracit, výplet z lana, teakové područky","kind":"chair","rx":0.06},{"t":"rect","cat":"terasa","x0":7.620000000000001,"y0":9.45,"x1":8.14,"y1":9.93,"label":"Jídelní křeslo: hliník antracit, výplet z lana, teakové područky","kind":"chair","rx":0.06},{"t":"rect","cat":"terasa","x0":7.620000000000001,"y0":10.87,"x1":8.14,"y1":11.35,"label":"Jídelní křeslo: hliník antracit, výplet z lana, teakové područky","kind":"chair","rx":0.06},{"t":"circ","cat":"terasa","cx":9.35,"cy":11.12,"r":0.3,"label":"Velký květináč s olivovníkem","kind":"planter"},{"t":"circ","cat":"terasa","cx":5.25,"cy":8.85,"r":0.28,"label":"Květináč s okrasnou trávou","kind":"planter"},{"t":"rect","cat":"nabytek","x0":9.4,"y0":0.7,"x1":10.0,"y1":3.45,"label":"Vestavěná skříň přes celou stěnu 2,75 m: botník, šatna, lavice s výklenkem, zrcadlo","kind":"storage","rx":0.0},{"t":"circ","cat":"tech","cx":6.36,"cy":1.08,"r":0.33,"label":"Zásobník TUV 300 l (rodina 2+2 s vanou)","kind":"tank"},{"t":"rect","cat":"tech","x0":6.0,"y0":1.55,"x1":6.65,"y1":2.2,"label":"Pračka a sušička na sobě (sušička nahoře, spojovací sada s výsuvnou policí)","kind":"wash","rx":0.0},{"t":"rect","cat":"tech","x0":6.0,"y0":2.35,"x1":6.5,"y1":2.85,"label":"Umyvadlo / výlevka s baterií","kind":"sink","rx":0.0},{"t":"rect","cat":"tech","x0":6.1,"y0":3.15,"x1":7.1,"y1":3.45,"label":"Police nad 1,6 m","kind":"shelf","rx":0.0},{"t":"rect","cat":"tech","x0":6.8,"y0":0.7,"x1":7.2,"y1":1.0499999999999998,"label":"Vnitřní jednotka TČ (hydrobox) na stěně","kind":"hp_in","rx":0.0},{"t":"rect","cat":"tech","x0":7.8,"y0":2.8,"x1":8.0,"y1":3.4,"label":"Rozvaděč a rozdělovač podlahového topení","kind":"board","rx":0.0},{"t":"rect","cat":"tech","x0":7.6,"y0":0.7999999999999999,"x1":8.0,"y1":1.6,"label":"Rekuperační jednotka na stěně (výška 1,9–2,6 m)","kind":"hrv","rx":0.0}],"exterior":[{"t":"rect","kind":"terrace","x0":4.8,"y0":8.5,"x1":9.8,"y1":11.5,"label":"Krytá terasa 5,00 × 3,00 = 15,0 m² před ložnicí, přístup z ložnice i obýváku","cat":"exterier"},{"t":"rect","kind":"column","x0":4.8,"y0":11.25,"x1":5.05,"y1":11.5,"label":"Sloup 25 × 25 na západním rohu terasy","cat":"exterier"},{"t":"rect","kind":"paving","x0":8.025,"y0":-7.0,"x1":9.575,"y1":-0.55,"label":"Vstupní chodník","cat":"exterier"},{"t":"rect","kind":"recess","x0":6.1,"y0":-0.55,"x1":9.9,"y1":0.25,"label":"Závětří před vchodem a technickou místností 3,80 × 0,80 pod střechou","cat":"exterier"},{"t":"rect","kind":"parking","x0":-8.25,"y0":-7.0,"x1":-2.45,"y1":-0.55,"label":"Vjezd: dnes 2 stání, později předprostor garáže","cat":"exterier"},{"t":"rect","kind":"garage","x0":-8.25,"y0":-0.55,"x1":-2.45,"y1":5.3100000000000005,"label":"Budoucí dvojgaráž Gardeon 5,80 × 5,86, vrata v linii uliční fasády domu, plochá střecha, výška cca 2,6 m","cat":"exterier"},{"t":"rect","kind":"hp_out","x0":6.1,"y0":-3.9,"x1":7.2,"y1":-3.45,"label":"Venkovní jednotka TČ","cat":"exterier"},{"t":"rect","kind":"screen","x0":5.6,"y0":-4.3,"x1":7.7,"y1":-3.05,"label":"Lamelová clona kolem TČ","cat":"exterier"},{"t":"rect","kind":"techwall","x0":0.25,"y0":-7.0,"x1":3.05,"y1":-6.0,"label":"Technická zídka u vjezdu: elektroměrový pilíř, schránka, zvonek, popelnice","cat":"exterier"},{"t":"rect","kind":"bins","x0":1.25,"y0":-6.85,"x1":2.85,"y1":-6.1,"label":"Popelnice v zídce","cat":"exterier"},{"t":"rect","kind":"tank","x0":11.9,"y0":14.5,"x1":14.9,"y1":16.7,"label":"Retenční nádrž 6–8 m³ pod terénem v zahradě (zálivka), přepad do vsakovací jímky","cat":"exterier"},{"t":"rect","kind":"soak","x0":13.3,"y0":31.0,"x1":16.3,"y1":33.0,"label":"Vsakovací jímka cca 6 m³ (vsakovací bloky 3,0 × 2,0 × 1,0 m), přepad do příkopu za hranicí","cat":"exterier"},{"t":"circ","kind":"tree","cx":17.15,"cy":-0.6,"r":1.1,"label":"Menší vícekmenný strom (stíní kuchyň v letních ránech), dál od přípojek","cat":"exterier"},{"t":"circ","kind":"tree","cx":2.5,"cy":18.5,"r":3.0,"label":"Strom v zahradě","cat":"exterier"},{"t":"circ","kind":"tree","cx":11.0,"cy":22.5,"r":3.2,"label":"Strom v zahradě","cat":"exterier"}],"hedges":[{"x0":17.75,"y0":-3.0,"x1":17.75,"y1":34.5,"label":"Živý plot 1,8 m podél komunikace"}],"outline":[[0,-0.55],[6.1,-0.55],[6.1,0.25],[9.9,0.25],[9.9,-0.55],[15.3,-0.55],[15.3,11.5],[9.8,11.5],[9.8,8.5],[0,8.5]],"terrain":{"x0":-11,"y0":-8,"step":1.0,"nx":31,"ny":45,"floor":250.25,"z":[249.21,249.18,249.21,249.26,249.3,249.35,249.39,249.46,249.52,249.53,249.55,249.61,249.66,249.68,249.69,249.76,249.83,249.87,249.9,249.91,249.94,249.99,250.04,250.07,250.08,250.08,250.1,250.17,250.24,250.29,250.34,249.19,249.17,249.2,249.25,249.27,249.31,249.36,249.43,249.47,249.5,249.54,249.6,249.64,249.66,249.69,249.73,249.77,249.81,249.85,249.87,249.91,249.96,250.01,250.05,250.04,250.02,250.07,250.14,250.2,250.26,250.31,249.16,249.2,249.25,249.29,249.27,249.27,249.33,249.41,249.44,249.46,249.51,249.58,249.62,249.63,249.64,249.67,249.71,249.76,249.81,249.85,249.88,249.94,250.02,250.08,250.05,250.0,250.08,250.13,250.18,250.23,250.28,249.15,249.22,249.26,249.28,249.25,249.22,249.28,249.35,249.38,249.41,249.47,249.54,249.6,249.6,249.6,249.64,249.68,249.72,249.77,249.81,249.86,249.93,250.01,250.1,250.09,250.09,250.14,250.16,250.17,250.21,250.25,249.13,249.2,249.23,249.24,249.23,249.23,249.27,249.31,249.31,249.37,249.45,249.51,249.56,249.59,249.61,249.64,249.67,249.7,249.75,249.78,249.83,249.91,249.99,250.05,250.08,250.12,250.17,250.17,250.17,250.2,250.23,249.09,249.14,249.19,249.21,249.24,249.25,249.3,249.32,249.34,249.38,249.45,249.51,249.56,249.61,249.64,249.66,249.7,249.73,249.76,249.78,249.84,249.92,249.98,250.02,250.04,250.08,250.12,250.14,250.15,250.17,250.19,249.05,249.12,249.17,249.2,249.22,249.26,249.32,249.38,249.4,249.41,249.47,249.53,249.58,249.63,249.67,249.7,249.74,249.77,249.77,249.81,249.89,249.97,249.98,249.99,250.01,250.04,250.07,250.1,250.12,250.13,250.16,249.1,249.16,249.19,249.19,249.22,249.27,249.34,249.41,249.43,249.45,249.5,249.56,249.61,249.66,249.71,249.75,249.75,249.74,249.75,249.79,249.88,249.93,249.94,249.96,249.99,250.01,250.04,250.07,250.09,250.11,250.13,249.14,249.21,249.2,249.19,249.22,249.27,249.33,249.38,249.42,249.46,249.53,249.58,249.64,249.69,249.71,249.71,249.7,249.7,249.72,249.74,249.79,249.85,249.89,249.92,249.95,249.97,250.01,250.05,250.09,250.11,250.13,249.12,249.16,249.18,249.18,249.21,249.26,249.32,249.36,249.41,249.47,249.54,249.61,249.64,249.63,249.63,249.63,249.64,249.65,249.68,249.69,249.72,249.8,249.86,249.89,249.91,249.95,250.0,250.04,250.08,250.12,250.18,249.09,249.12,249.15,249.17,249.21,249.26,249.32,249.39,249.44,249.48,249.55,249.62,249.63,249.57,249.54,249.55,249.57,249.6,249.66,249.7,249.75,249.81,249.85,249.88,249.92,249.94,249.99,250.04,250.08,250.13,250.21,249.06,249.09,249.13,249.16,249.2,249.24,249.31,249.42,249.46,249.46,249.5,249.59,249.65,249.55,249.48,249.48,249.49,249.55,249.66,249.77,249.81,249.82,249.85,249.91,249.95,249.95,249.98,250.02,250.07,250.12,250.18,249.04,249.07,249.1,249.13,249.17,249.21,249.27,249.35,249.4,249.41,249.43,249.51,249.55,249.49,249.43,249.43,249.45,249.48,249.63,249.78,249.78,249.77,249.81,249.89,249.92,249.92,249.96,250.0,250.04,250.09,250.15,249.03,249.05,249.08,249.1,249.13,249.15,249.16,249.23,249.31,249.35,249.37,249.4,249.42,249.41,249.4,249.41,249.42,249.42,249.52,249.65,249.7,249.7,249.73,249.78,249.81,249.84,249.9,249.95,249.99,250.04,250.09,248.98,249.02,249.06,249.06,249.06,249.06,249.07,249.12,249.21,249.28,249.31,249.32,249.32,249.33,249.34,249.37,249.36,249.37,249.44,249.54,249.64,249.68,249.68,249.69,249.72,249.77,249.83,249.87,249.91,249.9,249.94,248.91,248.94,248.96,248.97,248.97,248.99,249.01,249.05,249.14,249.21,249.23,249.22,249.2,249.23,249.28,249.28,249.23,249.27,249.37,249.46,249.58,249.68,249.66,249.63,249.66,249.72,249.77,249.81,249.82,249.78,249.77,248.8,248.82,248.84,248.87,248.89,248.9,248.93,248.99,249.06,249.12,249.16,249.14,249.12,249.17,249.23,249.23,249.21,249.27,249.34,249.36,249.49,249.62,249.61,249.57,249.59,249.66,249.72,249.75,249.77,249.75,249.76,248.72,248.72,248.75,248.8,248.83,248.83,248.85,248.92,248.98,249.04,249.1,249.12,249.11,249.13,249.19,249.24,249.28,249.36,249.38,249.35,249.4,249.5,249.54,249.54,249.57,249.63,249.68,249.72,249.75,249.77,249.8,248.68,248.68,248.68,248.73,248.78,248.8,248.81,248.86,248.92,248.99,249.06,249.1,249.1,249.11,249.16,249.23,249.3,249.36,249.41,249.38,249.37,249.44,249.49,249.51,249.55,249.61,249.67,249.72,249.75,249.77,249.81,248.63,248.63,248.64,248.68,248.72,248.75,248.78,248.84,248.91,248.97,249.01,249.04,249.06,249.08,249.13,249.19,249.23,249.3,249.39,249.37,249.37,249.42,249.45,249.46,249.52,249.6,249.67,249.72,249.74,249.78,249.83,248.6,248.6,248.62,248.64,248.68,248.71,248.76,248.83,248.9,248.93,248.95,248.97,248.99,249.03,249.09,249.14,249.18,249.23,249.27,249.27,249.31,249.39,249.39,249.42,249.49,249.57,249.61,249.65,249.7,249.76,249.8,248.57,248.57,248.59,248.61,248.64,248.67,248.71,248.78,248.84,248.86,248.89,248.92,248.93,248.95,249.02,249.1,249.13,249.17,249.19,249.17,249.23,249.28,249.29,249.34,249.43,249.49,249.51,249.55,249.63,249.68,249.72,248.53,248.54,248.57,248.59,248.6,248.63,248.65,248.7,248.76,248.81,248.85,248.89,248.89,248.88,248.97,249.04,249.08,249.13,249.16,249.17,249.21,249.22,249.23,249.32,249.39,249.43,249.45,249.5,249.56,249.61,249.65,248.47,248.49,248.55,248.59,248.58,248.57,248.6,248.65,248.72,248.77,248.81,248.87,248.88,248.91,248.96,249.01,249.05,249.1,249.13,249.16,249.21,249.24,249.27,249.33,249.38,249.41,249.44,249.48,249.53,249.57,249.61,248.43,248.46,248.57,248.63,248.6,248.57,248.64,248.68,248.72,248.74,248.78,248.83,248.87,248.92,248.98,249.02,249.06,249.1,249.12,249.16,249.2,249.25,249.29,249.34,249.37,249.4,249.43,249.47,249.51,249.55,249.59,248.48,248.53,248.62,248.68,248.67,248.7,248.77,248.77,248.74,248.76,248.78,248.82,248.86,248.92,248.99,249.05,249.08,249.12,249.15,249.16,249.2,249.25,249.3,249.34,249.37,249.4,249.42,249.46,249.5,249.54,249.59,248.52,248.59,248.64,248.66,248.69,248.77,248.85,248.8,248.77,248.78,248.8,248.82,248.87,248.92,248.98,249.04,249.09,249.13,249.17,249.17,249.2,249.25,249.3,249.34,249.37,249.4,249.42,249.46,249.5,249.54,249.59,248.51,248.57,248.62,248.64,248.68,248.73,248.78,248.78,248.78,248.8,248.82,248.83,248.87,248.92,248.97,249.02,249.07,249.11,249.14,249.16,249.19,249.24,249.28,249.33,249.36,249.4,249.43,249.47,249.51,249.55,249.6,248.5,248.54,248.59,248.64,248.68,248.72,248.74,248.75,248.77,248.81,248.84,248.85,248.87,248.91,248.96,249.0,249.05,249.08,249.1,249.13,249.17,249.21,249.26,249.31,249.35,249.39,249.43,249.48,249.53,249.57,249.63,248.49,248.54,248.59,248.63,248.67,248.71,248.73,248.73,248.74,248.8,248.84,248.85,248.87,248.91,248.95,248.98,249.02,249.06,249.09,249.12,249.15,249.19,249.24,249.3,249.34,249.38,249.42,249.47,249.53,249.58,249.63,248.51,248.54,248.58,248.63,248.67,248.71,248.73,248.74,248.76,248.8,248.82,248.85,248.88,248.91,248.94,248.97,249.02,249.06,249.1,249.12,249.14,249.19,249.24,249.29,249.33,249.37,249.4,249.45,249.51,249.57,249.61,248.54,248.58,248.61,248.64,248.68,248.71,248.74,248.75,248.78,248.81,248.84,248.86,248.9,248.93,248.95,248.99,249.03,249.08,249.12,249.14,249.15,249.19,249.24,249.28,249.32,249.37,249.4,249.44,249.5,249.55,249.59,248.62,248.65,248.66,248.67,248.7,248.73,248.75,248.75,248.78,248.82,248.86,248.89,248.91,248.94,248.96,249.0,249.05,249.1,249.15,249.18,249.18,249.19,249.23,249.27,249.32,249.39,249.43,249.46,249.49,249.54,249.58,248.67,248.72,248.7,248.7,248.73,248.77,248.8,248.79,248.78,248.83,248.9,248.94,248.94,248.95,248.98,249.03,249.08,249.13,249.17,249.2,249.2,249.21,249.24,249.28,249.34,249.41,249.47,249.49,249.5,249.54,249.58,248.66,248.7,248.72,248.73,248.77,248.83,248.88,248.85,248.8,248.87,248.97,249.02,248.99,248.99,249.03,249.07,249.12,249.18,249.22,249.23,249.22,249.23,249.25,249.3,249.36,249.42,249.5,249.53,249.53,249.54,249.58,248.63,248.67,248.71,248.75,248.81,248.88,248.92,248.91,248.87,248.9,248.98,249.03,249.01,249.02,249.06,249.1,249.15,249.23,249.3,249.27,249.25,249.26,249.28,249.31,249.36,249.42,249.5,249.56,249.55,249.55,249.59,248.63,248.68,248.7,248.74,248.81,248.87,248.91,248.93,248.91,248.9,248.93,248.97,248.99,249.04,249.08,249.12,249.16,249.24,249.29,249.29,249.28,249.28,249.28,249.31,249.36,249.41,249.48,249.53,249.55,249.57,249.61,248.66,248.72,248.71,248.72,248.79,248.86,248.89,248.92,248.92,248.9,248.91,248.97,249.02,249.06,249.1,249.15,249.21,249.26,249.29,249.3,249.3,249.27,249.28,249.31,249.36,249.41,249.47,249.51,249.54,249.58,249.64,248.66,248.68,248.67,248.7,248.77,248.83,248.88,248.9,248.93,248.93,248.97,249.04,249.08,249.09,249.14,249.21,249.27,249.3,249.31,249.34,249.35,249.3,249.28,249.32,249.36,249.42,249.47,249.52,249.54,249.58,249.64,248.64,248.62,248.6,248.67,248.74,248.8,248.86,248.89,248.9,248.92,249.01,249.09,249.08,249.09,249.15,249.23,249.25,249.25,249.29,249.34,249.36,249.31,249.3,249.34,249.37,249.42,249.48,249.55,249.55,249.56,249.61,248.65,248.62,248.6,248.65,248.71,248.77,248.82,248.86,248.87,248.88,248.96,249.02,249.04,249.06,249.11,249.14,249.15,249.18,249.24,249.28,249.29,249.28,249.31,249.34,249.37,249.41,249.46,249.49,249.49,249.52,249.58,248.63,248.61,248.61,248.64,248.7,248.74,248.79,248.83,248.85,248.87,248.91,248.95,248.97,249.0,249.04,249.06,249.09,249.15,249.2,249.23,249.25,249.28,249.31,249.34,249.38,249.4,249.41,249.41,249.41,249.49,249.56,248.58,248.59,248.61,248.64,248.69,248.73,248.77,248.8,248.83,248.86,248.87,248.88,248.9,248.94,248.98,249.02,249.07,249.13,249.18,249.22,249.25,249.29,249.32,249.36,249.4,249.41,249.38,249.39,249.43,249.49,249.56,248.56,248.58,248.61,248.65,248.7,248.74,248.76,248.78,248.8,248.82,248.82,248.8,248.84,248.87,248.91,248.96,249.03,249.12,249.17,249.21,249.25,249.3,249.34,249.39,249.44,249.45,249.43,249.43,249.46,249.5,249.55,248.55,248.57,248.63,248.7,248.75,248.77,248.76,248.75,248.77,248.8,248.79,248.78,248.8,248.82,248.85,248.95,249.06,249.13,249.16,249.21,249.28,249.34,249.37,249.39,249.44,249.49,249.48,249.47,249.5,249.51,249.54],"source":"ČÚZK DMR 5G (exportImage), staženo 2026-10-16"},"utilities":[{"kind":"pillar_old","x0":-4.95,"y0":-6.95,"x1":-4.35,"y1":-6.55,"label":"Elektroměrový pilíř SS100 (X81) podle projektu ČEZ – cca 5,6 m od JZ rohu, stojí ve vjezdu"},{"kind":"pillar_new","x0":0.45,"y0":-6.95,"x1":1.05,"y1":-6.55,"label":"Navržená poloha pilíře: cca 10,7–11,3 m od JZ rohu parcely na hranici s komunikací, 3 m od okraje vjezdu, v technické zídce"},{"kind":"water","cx":16.7,"cy":-5.8,"r":0.45,"label":"Vodoměrná šachta (JV roh parcely, poloha orientačně)"},{"kind":"sewer","cx":15.6,"cy":-4.7,"r":0.35,"label":"Revizní šachta splaškové kanalizace (JV roh parcely, poloha orientačně)"}],"routes":[{"kind":"power","pts":[[0.75,-6.55],[7.1,-1.0],[7.1,0.25],[7.9,3.1]],"label":"Elektro: kabel z pilíře v chráničce pod trávníkem a deskou do rozvaděče v tech. místnosti (cca 13 m)"},{"kind":"water","pts":[[16.7,-5.8],[10.6,-1.0],[6.8,-1.0],[6.8,1.1]],"label":"Voda: z vodoměrné šachty pod deskou do technické místnosti (cca 14 m), v nezámrzné hloubce"},{"kind":"sewer","pts":[[4.4,1.2],[13.9,1.2],[13.9,-0.55],[15.6,-4.7]],"label":"Kanalizace: koupelna → technická místnost → kuchyň → revizní šachta, spád min. 2 % (cca 17 m)"},{"kind":"sewer","pts":[[6.25,2.6],[6.25,1.2]],"label":"Kanalizace: pračka a umyvadlo v tech. místnosti"},{"kind":"rain","pts":[[15.3,11.5],[14.8,14.5]],"label":"Dešťová voda ze střechy do retenční nádrže na zálivku"},{"kind":"rain","pts":[[14.4,16.7],[14.8,31.0]],"label":"Přepad z retenční nádrže do vsakovací jímky (cca 14 m)"},{"kind":"rain","pts":[[15.8,33.0],[17.4,36.6]],"label":"Přepad ze vsakovací jímky do příkopu (souhlas vlastníka pozemku 2905/1 – město)"},{"kind":"ditch","pts":[[9.0,36.9],[14.0,37.0],[19.5,37.1]],"label":"Příkop za severní hranicí parcely (poloha orientačně)"}],"lights":[{"t":"pt","kind":"down","x":11.35,"y":0.45,"label":"Výklopný bodovec nad linkou, 3000 K, CRI 95"},{"t":"pt","kind":"down","x":12.45,"y":0.45,"label":"Výklopný bodovec nad linkou, 3000 K, CRI 95"},{"t":"pt","kind":"down","x":13.55,"y":0.45,"label":"Výklopný bodovec nad linkou, 3000 K, CRI 95"},{"t":"pt","kind":"down","x":14.55,"y":0.45,"label":"Výklopný bodovec nad linkou, 3000 K, CRI 95"},{"t":"ln","kind":"pend","x0":12.15,"y0":2.3,"x1":13.75,"y1":2.3,"label":"Lineární závěs nad ostrovem 1,6 m"},{"t":"ln","kind":"pend","x0":11.95,"y0":5.175,"x1":13.55,"y1":5.175,"label":"Lineární závěs nad stolem 1,6 m, 70 cm nad deskou"},{"t":"ln","kind":"cove","x0":10.37,"y0":4.1,"x1":10.37,"y1":6.55,"label":"Světelná spára – nasvícení nosné stěny v jídelně, 2700 K"},{"t":"pt","kind":"graze","x":11.15,"y":6.95,"label":"Zapuštěný bodovec – nasvícení betonového sloupu krbu"},{"t":"pt","kind":"graze","x":11.15,"y":7.75,"label":"Zapuštěný bodovec – nasvícení betonového sloupu krbu"},{"t":"ln","kind":"lin","x0":12.0,"y0":10.620000000000001,"x1":14.4,"y1":10.620000000000001,"label":"LED pásek pod zavěšenou skříňkou, 2700 K"},{"t":"ln","kind":"cove","x0":11.88,"y0":10.98,"x1":14.8,"y1":10.98,"label":"Nepřímé světlo shora na dřevěný obklad – snižuje kontrast obrazovky"},{"t":"pt","kind":"floor","x":14.55,"y":10.0,"label":"Stojací lampa v rohu u sedačky"},{"t":"pt","kind":"table","x":12.2,"y":10.82,"label":"Stolní lampa na skříňce"},{"t":"pt","kind":"down","x":10.6,"y":9.75,"label":"Bodovec u HS portálu"},{"t":"ln","kind":"lin","x0":3.45,"y0":4.2,"x1":9.8,"y1":4.2,"label":"Lineární zapuštěné svítidlo v chodbě, 2700 K"},{"t":"pt","kind":"step","x":5.0,"y":3.66,"label":"Orientační světlo 30 cm nad podlahou, 2200 K, čidlo pohybu"},{"t":"pt","kind":"step","x":7.1,"y":3.66,"label":"Orientační světlo 30 cm nad podlahou, 2200 K, čidlo pohybu"},{"t":"pt","kind":"step","x":9.2,"y":3.66,"label":"Orientační světlo 30 cm nad podlahou, 2200 K, čidlo pohybu"},{"t":"pt","kind":"down","x":8.8,"y":1.4,"label":"Bodovec zádveří, čidlo pohybu"},{"t":"pt","kind":"down","x":8.8,"y":2.75,"label":"Bodovec zádveří, čidlo pohybu"},{"t":"ln","kind":"lin","x0":9.35,"y0":0.85,"x1":9.35,"y1":3.35,"label":"LED ve skříni a nad lavicí"},{"t":"ln","kind":"cove","x0":9.93,"y0":5.7,"x1":9.93,"y1":7.3,"label":"Nepřímé světlo za čelem postele, 2400 K"},{"t":"pt","kind":"wall","x":9.85,"y":5.3,"label":"Čtecí lampička"},{"t":"pt","kind":"wall","x":9.85,"y":7.7,"label":"Čtecí lampička"},{"t":"pt","kind":"ceil","x":7.4,"y":6.5,"label":"Stropní difuzní svítidlo"},{"t":"ln","kind":"lin","x0":5.4,"y0":5.25,"x1":5.4,"y1":7.95,"label":"LED ve skříni"},{"t":"pt","kind":"ceil","x":2.65,"y":6.5,"label":"Stropní difuzní svítidlo"},{"t":"pt","kind":"lamp","x":0.7,"y":6.8,"label":"Stolní lampa"},{"t":"pt","kind":"wall","x":0.55,"y":7.6,"label":"Lampička u postele"},{"t":"pt","kind":"ceil","x":1.8,"y":2.4,"label":"Stropní difuzní svítidlo"},{"t":"pt","kind":"lamp","x":1.25,"y":0.25,"label":"Stolní lampa"},{"t":"pt","kind":"wall","x":0.55,"y":4.35,"label":"Lampička u postele"},{"t":"ln","kind":"mirror","x0":3.31,"y0":1.05,"x1":3.31,"y1":2.35,"label":"Zrcadlo s podsvícením a čelním světlem, CRI 95"},{"t":"pt","kind":"down","x":5.449999999999999,"y":0.8,"label":"IP65 bodovec nad vanou"},{"t":"pt","kind":"down","x":5.35,"y":2.95,"label":"IP65 bodovec ve sprše"},{"t":"pt","kind":"down","x":4.4,"y":1.7,"label":"Bodovec koupelna"},{"t":"pt","kind":"step","x":3.85,"y":0.85,"label":"Noční světlo v soklu, čidlo"},{"t":"ln","kind":"lin","x0":7.0,"y0":1.2,"x1":7.0,"y1":3.0,"label":"Lineární svítidlo 4000 K"},{"t":"pt","kind":"ext","x":5.8,"y":10.0,"label":"Podhledový bodovec terasy IP65, 2700 K, stmívatelný"},{"t":"pt","kind":"ext","x":7.3,"y":10.0,"label":"Podhledový bodovec terasy IP65, 2700 K, stmívatelný"},{"t":"pt","kind":"ext","x":8.8,"y":10.0,"label":"Podhledový bodovec terasy IP65, 2700 K, stmívatelný"},{"t":"pt","kind":"ext","x":8.8,"y":-0.15000000000000002,"label":"Bodovec v podhledu závětří nad vstupem"},{"t":"pt","kind":"ext","x":7.0,"y":-0.15000000000000002,"label":"Bodovec v podhledu závětří u technické místnosti"},{"t":"pt","kind":"bollard","x":9.65,"y":-2.4,"label":"Sloupkové svítidlo u chodníku, plně cloněné"},{"t":"pt","kind":"bollard","x":9.65,"y":-4.8,"label":"Sloupkové svítidlo u chodníku, plně cloněné"},{"t":"pt","kind":"uplight","x":17.15,"y":-0.6,"label":"Nasvícení stromu zespodu"},{"t":"pt","kind":"ext","x":-2.55,"y":1.0,"label":"Nástěnné svítidlo na garáži s čidlem"}],"notes":[["Krytá terasa",8.45,10.3],["Kuchyň",14.3,1.15],["Jídelna",14.25,6.5],["Krb",10.95,6.15],["TV",13.2,10.45],["VSTUP ↑",8.8,-2.05],["TČ",6.65,-3.8],["Budoucí dvojgaráž",-5.4,2.1],["Vjezd / 2 stání",-5.4,-4.1]],"dims":{"h":[[0,15.3,-8.1,"15,30"],[0,10.25,-7.45,"10,25"],[10.25,15.3,-7.45,"5,05"],[4.8,9.8,12.55,"5,00 terasa"],[9.8,15.3,12.55,"5,50"],[10.25,14.850000000000001,-1.25,"4,60 světle"],[6.1,9.9,-1.25,"závětří 3,80"],[-8.25,-2.45,5.45,"5,80"]],"v":[[-0.55,8.5,-1.4,"9,05"],[-0.55,11.5,16.400000000000002,"12,05"],[-0.55,0.25,15.8,"0,80"],[8.5,11.5,15.8,"3,00"],[-0.55,5.3100000000000005,-8.95,"5,86"]]},"siteDims":[[4,-7,4,-0.55,"6,45"],[15.3,6,18.35,6,"3,05"],[-2.45,6,0,6,"2,45"],[-10.3,2,-8.25,2,"2,05"],[6,11.5,6,35.4,"23,9"]],"plot":{"grid_bearing_x":61.82,"meridian_convergence":4.72,"parcels":{"2905/3":{"kind":"plot","area":581.0,"ring":[[86.216,36.854],[96.148,37.012],[81.84,44.123],[78.066,53.338],[74.206,62.735],[43.484,36.165],[60.421,36.438],[86.216,36.854]]},"2905/2":{"kind":"plot","area":580.0,"ring":[[87.208,73.978],[74.206,62.735],[78.066,53.338],[81.84,44.123],[96.148,37.012],[93.231,46.324],[105.777,53.669],[92.706,67.957],[87.208,73.978]]},"2904/16":{"kind":"plot","area":1126.0,"ring":[[60.405,-7.017],[86.202,-7.021],[86.216,36.854],[60.421,36.438],[60.405,-7.017]]},"2904/38":{"kind":"plot","area":955.0,"ring":[[86.216,36.854],[86.202,-7.021],[107.878,-7.03],[107.902,37.203],[96.148,37.012],[86.216,36.854]]},"2904/7":{"kind":"road","area":2380.0,"ring":[[107.872,-17.033],[107.875,-12.032],[107.878,-7.03],[86.202,-7.021],[60.405,-7.017],[34.009,-7.009],[35.45,36.034],[20.482,35.795],[18.361,35.752],[18.347,-7.0],[-10.3,-7.0],[-39.157,-6.99],[-39.44,-56.427],[-34.369,-56.513],[-34.237,-20.971],[-30.241,-16.986],[-12.412,-16.998],[8.391,-17.004],[30.152,-17.002],[33.655,-17.007],[52.369,-17.017],[70.874,-17.017],[89.373,-17.025],[107.872,-17.033]]},"2904/28":{"kind":"plot","area":857.0,"ring":[[-34.237,-20.971],[-34.369,-56.513],[-12.646,-56.898],[-12.412,-16.998],[-30.241,-16.986],[-34.237,-20.971]]},"2904/29":{"kind":"plot","area":834.0,"ring":[[-12.646,-56.898],[8.157,-57.267],[8.391,-17.004],[-12.412,-16.998],[-12.646,-56.898]]},"2904/8":{"kind":"plot","area":1616.0,"ring":[[-39.469,-80.089],[27.827,-81.853],[27.827,-81.705],[28.221,-57.615],[8.157,-57.267],[-12.646,-56.898],[-34.369,-56.513],[-39.44,-56.427],[-39.469,-80.089]]},"2904/42":{"kind":"plot","area":228.0,"ring":[[-28.048,-87.718],[-5.096,-88.331],[3.446,-88.268],[22.687,-88.629],[27.694,-89.723],[28.317,-89.853],[28.009,-85.218],[-36.579,-84.054],[-36.578,-86.403],[-28.048,-87.718]]},"2904/30":{"kind":"plot","area":846.0,"ring":[[28.221,-57.615],[30.152,-17.002],[8.391,-17.004],[8.157,-57.267],[28.221,-57.615]]},"2904/43":{"kind":"plot","area":787.0,"ring":[[27.827,-81.705],[61.165,-82.245],[61.198,-58.892],[52.354,-58.543],[32.257,-57.77],[28.221,-57.615],[27.827,-81.705]]},"2904/33":{"kind":"plot","area":775.0,"ring":[[70.861,-59.259],[70.874,-17.017],[52.369,-17.017],[52.354,-58.543],[61.198,-58.892],[70.861,-59.259]]},"2904/26":{"kind":"own","area":1216.0,"ring":[[18.347,-7.0],[18.361,35.752],[-10.277,35.135],[-10.3,-7.0],[18.347,-7.0]]},"2904/39":{"kind":"plot","area":1111.0,"ring":[[35.45,36.034],[34.009,-7.009],[60.405,-7.017],[60.421,36.438],[43.484,36.165],[35.45,36.034]]},"2904/31":{"kind":"plot","area":153.0,"ring":[[28.221,-57.615],[32.257,-57.77],[33.655,-17.007],[30.152,-17.002],[28.221,-57.615]]},"2904/32":{"kind":"plot","area":799.0,"ring":[[32.257,-57.77],[52.354,-58.543],[52.369,-17.017],[33.655,-17.007],[32.257,-57.77]]},"2901":{"kind":"plot","area":2867.0,"ring":[[-61.32,354.964],[-53.645,344.135],[-50.862,340.204],[-27.54,296.01],[-9.439,248.996],[8.991,201.114],[11.009,195.903],[17.511,179.009],[43.242,135.225],[74.25,89.6],[87.208,73.978],[92.706,67.957],[105.777,53.669],[117.205,41.056],[120.65,37.406],[130.607,26.728],[173.299,-18.941],[187.438,-34.073],[201.029,-51.034],[232.68,-89.572],[273.259,-124.363],[275.709,-126.481],[313.491,-159.104],[317.701,-162.744],[335.068,-189.51],[347.22,-209.284],[351.677,-216.528],[368.963,-238.406],[371.211,-240.394],[395.872,-262.208],[401.494,-267.171],[407.914,-274.118],[410.055,-279.269],[424.698,-311.564],[425.27,-312.847],[425.538,-311.606],[426.537,-306.015],[413.388,-275.632],[411.79,-274.062],[401.858,-264.269],[370.699,-236.648],[354.37,-215.906],[337.828,-188.107],[320.532,-161.526],[276.657,-122.871],[238.437,-89.287],[235.901,-87.055],[229.053,-78.745],[225.364,-74.261],[204.497,-48.944],[201.009,-44.931],[193.505,-36.281],[189.904,-32.139],[178.935,-20.237],[157.648,2.855],[155.156,5.552],[124.071,39.26],[96.736,68.724],[78.422,90.484],[46.349,137.043],[24.847,174.068],[21.302,180.177],[8.052,213.462],[-24.493,295.216],[-47.908,341.503],[-65.505,368.223],[-68.85,365.579],[-66.208,361.849],[-61.759,355.585],[-61.561,355.468],[-61.613,355.371],[-61.32,354.964]]},"2904/11":{"kind":"plot","area":1220.0,"ring":[[26.682,-119.983],[51.276,-119.967],[64.326,-119.96],[61.109,-85.778],[28.009,-85.218],[28.317,-89.853],[27.694,-89.723],[26.682,-119.983]]},"2904/27":{"kind":"plot","area":1202.0,"ring":[[-39.157,-6.99],[-10.3,-7.0],[-10.277,35.135],[-38.914,34.517],[-39.157,-6.99]]},"2904/34":{"kind":"plot","area":788.0,"ring":[[89.349,-59.965],[89.373,-17.025],[70.874,-17.017],[70.861,-59.259],[89.349,-59.965]]},"2904/1":{"kind":"plot","area":19804.0,"ring":[[-166.669,27.789],[-207.242,-27.901],[-239.628,-26.453],[-257.547,-65.715],[-267.817,-76.095],[-286.96,-89.526],[-274.914,-88.958],[-231.353,-87.42],[-159.857,-83.061],[-141.449,-81.886],[-129.292,-81.662],[-44.904,-80.07],[-46.422,30.689],[-166.669,27.789]]},"2905/1":{"kind":"field","area":20963.0,"ring":[[-38.914,34.517],[-10.277,35.135],[18.361,35.752],[20.482,35.795],[35.45,36.034],[43.484,36.165],[74.206,62.735],[87.208,73.978],[74.25,89.6],[43.242,135.225],[17.511,179.009],[11.009,195.903],[-25.388,183.662],[-28.429,173.879],[-33.857,174.314],[-39.807,159.906],[-50.873,132.776],[-67.064,93.711],[-98.298,106.624],[-118.719,59.241],[-129.135,59.513],[-156.058,70.332],[-162.868,54.32],[-167.991,42.259],[-176.455,22.357],[-175.949,22.222],[-171.839,31.183],[-125.248,32.425],[-79.118,33.654],[-46.466,34.355],[-38.914,34.517]]},"2904/6":{"kind":"plot","area":1322.0,"ring":[[28.009,-85.218],[27.827,-81.853],[-39.469,-80.089],[-39.44,-56.427],[-39.157,-6.99],[-38.914,34.517],[-46.466,34.355],[-46.422,30.689],[-44.904,-80.07],[-129.292,-81.662],[-128.764,-85.291],[-125.183,-85.236],[-81.188,-84.52],[-57.234,-84.173],[-42.357,-83.953],[-36.579,-84.054],[28.009,-85.218]]},"2904/45":{"kind":"plot","area":319.0,"ring":[[61.109,-85.778],[100.567,-87.135],[101.009,-74.643],[94.491,-74.485],[94.246,-80.151],[90.89,-83.322],[61.165,-82.245],[27.827,-81.705],[27.827,-81.853],[28.009,-85.218],[61.109,-85.778]]},"2904/2":{"kind":"plot","area":3166.0,"ring":[[-171.839,31.183],[-175.949,22.222],[-189.565,2.676],[-197.432,-8.618],[-208.651,-24.729],[-223.823,-14.001],[-241.294,-1.656],[-243.172,-0.332],[-260.244,-24.72],[-262.025,-27.26],[-286.182,-61.183],[-299.341,-79.114],[-307.707,-90.514],[-286.96,-89.526],[-267.817,-76.095],[-257.547,-65.715],[-239.628,-26.453],[-207.242,-27.901],[-166.669,27.789],[-46.422,30.689],[-46.466,34.355],[-79.118,33.654],[-125.248,32.425],[-171.839,31.183]]}}},"roof":{"rects":[[0,-0.55,15.3,8.5],[4.8,-0.55,15.3,11.5]],"eaveTop":3.15,"soffit":2.95,"pitch":22.0,"eave":0.6,"outline":[[-0.6,-1.15],[15.9,-1.15],[15.9,12.1],[4.2,12.1],[4.2,9.1],[-0.6,9.1]],"ridgeZ":5.51},"occluders":{"walls":[[0,-0.55,6.1,8.5],[6.1,0.25,9.9,8.5],[9.9,-0.55,15.3,8.5],[9.8,8.5,15.3,11.5]],"columns":[[4.8,11.25,5.05,11.5]],"garage":[-8.25,-0.55,-2.45,5.3100000000000005,0,2.6]}};
+(function(){
+"use strict";
+const M = SPEC.meta, NS = "http://www.w3.org/2000/svg";
+const $ = id => document.getElementById(id);
+const fmt = (v, d=2) => v.toFixed(d).replace(".", ",");
+const deg = Math.PI/180;
+const ROOM = Object.fromEntries(SPEC.rooms.map(r=>[r.id,r]));
+
+/* ---------------- fakta a tabulky ---------------- */
+const facts = [
+  ["Užitná plocha", fmt(M.areaTotal,1)+" m²", "původně "+fmt(M.areaOriginal,1)+" m², limit 120 m² zrušen"],
+  ["Obývák + jídelna + kuchyň", fmt(ROOM["1.08"].area,1)+" m²", fmt(ROOM["1.08"].w)+" × "+fmt(ROOM["1.08"].d)+" m, původně 50,6 m²"],
+  ["Pokoje 1.04 / 1.05", fmt(ROOM["1.04"].area,1)+" / "+fmt(ROOM["1.05"].area,1)+" m²", "koupelna "+fmt(ROOM["1.03"].area,1)+" m²"],
+  ["Krytá terasa", fmt(M.terrace,1)+" m²", fmt(M.terrace/3,2)+" × 3,00 m před ložnicí"],
+  ["Střecha", "valbová "+fmt(SPEC.roof.pitch,0)+"°", "tvar L, přesah 0,60 m"],
+  ["Podlaha ±0,000", SPEC.terrain?fmt(SPEC.terrain.floor,2)+" m n. m.":"–", "terén pod domem 249,0–250,0"],
+];
+document.querySelectorAll(".js-area").forEach(e=>e.textContent=fmt(M.areaTotal,1));
+$("facts").innerHTML = facts.map(f=>`<div><dt>${f[0]}</dt><dd>${f[1]}<small>${f[2]}</small></dd></div>`).join("");
+const CH = [
+  ["Rozměry domu","14,80 × 9,45 m","15,30 × 9,05 m","Ve v6 o 0,40 m kratší než v5 (užší obývák). K východní komunikaci 3,05 m."],
+  ["Technická místnost","1,80 × 3,40 m u ložnice","2,00 × 2,75 m u zádveří","5,5 m², vstup ze zádveří, umyvadlo, spotřebiče na stěně ke koupelně."],
+  ["Koupelna","2,55 × 3,00 m","2,60 × 3,55 m","9,2 m² podle vašeho náčrtu: sprcha 100 × 100, vana 180 × 80, dvě umyvadla, WC a žebřík."],
+  ["Závětří","–","3,80 × 0,80 m","Zapuštěné 0,80 m jako u vzorového domu, před vstupem i technickou místností."],
+  ["Vnitřní dveře","70–80","všechny 80","Stavební otvor 0,90 m, i do koupelny a technické místnosti."],
+  ["Obytné křídlo","4,60 × 11,00 m","4,60 × 11,15 m","Ve v6 zase 4,60 m světle (zvenku 5,50 m). Linka 3,95 m, ostrov 2,00 × 1,00 m, stůl 220 × 95 pro 6, sedačka 3,00 m 2,45 m od TV."],
+  ["Krytá terasa","4,75 × 3,00 m","5,00 × 3,00 m","Před ložnicí, vstup z ložnice i obýváku, stůl pro 6 uprostřed."],
+  ["Pokoj 1.04 (dole u ulice)","3,00 × 4,85 m","2,65 × 4,90 m","Skříň 3,10 m na východní stěně pod dveřmi, stůl uprostřed pod jižním oknem, postel podél západní stěny, dveře u pokoje 1.05."],
+  ["Pokoj 1.05 (nahoře u ložnice)","4,20 × 3,00 m","4,50 × 3,10 m","Skříň 3,10 m přes celou stěnu k ložnici, stůl pod západním oknem, postel u severní stěny."],
+  ["Ložnice","4,00 × 3,40 m","4,90 × 3,10 m","Skříň 3,10 m přes celou stěnu, postel čelem u nosné stěny, HS na terasu."],
+  ["Chodba","5,95 × 1,30 m","6,75 × 1,20 m","Ve v6 o 10 cm užší ve prospěch ložnice a pokoje 1.05."],
+  ["Zádveří","2,05 × 3,00 m","1,85 × 2,75 m","Kratší kvůli hlubšímu závětří, skříň přes celou stěnu, dveře do technické místnosti."],
+  ["Světlá výška","2,60–2,70 m","2,75 m","Okna až do stropu pustí světlo hlouběji do místností."],
+];
+$("changes").tBodies[0].innerHTML = CH.map((c,i)=>`<tr><td class="num">${i+1}</td><td>${c[0]}</td><td class="num">${c[1]}</td><td class="num"><span class="arrow">→</span> ${c[2]}</td><td>${c[3]}</td></tr>`).join("");
+$("rooms").tBodies[0].innerHTML = SPEC.rooms.map(r=>{
+  const o = SPEC.original[r.id][1], d = r.area-o;
+  return `<tr><td class="num">${r.id}</td><td>${r.name}</td><td class="num">${fmt(r.w)} × ${fmt(r.d)}</td><td class="num">${fmt(r.area)}</td><td class="num">${fmt(o)}</td><td class="num">${d>=0?"+":""}${fmt(d)}</td></tr>`;
+}).join("") + `<tr><td></td><td><b>Celkem</b></td><td></td><td class="num"><b>${fmt(M.areaTotal)}</b></td><td class="num">${fmt(M.areaOriginal)}</td><td class="num">+${fmt(M.areaTotal-M.areaOriginal)}</td></tr>`;
+const SW = [["#efebe3","Vápenná omítka","teplá bílá, odrazivost kolem 80 %"],["#c9a57c","Světlý dub, olej","prkna 22 cm, celý dům mimo koupelnu"],
+  ["#d6cab6","Travertin","kamna, podlaha před nimi, parapety"],["#d3cfc8","Keramická deska","ostrov a linka, matná"],
+  ["#c8bea9","Len","záclony, potahy, ložnice"],["#3a3733","Antracit","rámy oken, vrata garáže, kování"]];
+$("swatches").innerHTML = SW.map(s=>`<div class="sw"><b style="background:${s[0]}"></b><div>${s[1]}<span>${s[2]}</span></div></div>`).join("");
+
+/* ---------------- orientace ---------------- */
+const BX = M.bearingX, BY = BX - 90;
+const AZ = {N:(BY+360)%360, E:BX, S:(BY+180)%360, W:(BX+180)%360};
+const azName = a => ["S","SSV","SV","VSV","V","VJV","JV","JJV","J","JJZ","JZ","ZJZ","Z","ZSZ","SZ","SSZ"][Math.round(((a%360)+360)%360/22.5)%16];
+$("openings").tBodies[0].innerHTML = SPEC.openings.map(o=>`<tr><td class="num">${o.id}</td><td>${o.room}</td><td class="num">${Math.round(AZ[o.wall])}° ${azName(AZ[o.wall])}</td><td>${o.label}</td><td>${o.shading||"–"}</td></tr>`).join("");
+
+/* ---------------- slunce ---------------- */
+const YEAR = 2027;
+function lastSunday(y, m){ const d = new Date(Date.UTC(y, m+1, 0)); return d.getUTCDate() - d.getUTCDay(); }
+function utcOffset(doy){
+  const d = new Date(Date.UTC(YEAR,0,doy)), m = d.getUTCMonth(), day = d.getUTCDate();
+  const s = lastSunday(YEAR,2), e = lastSunday(YEAR,9);
+  return ((m>2 && m<9) || (m===2 && day>=s) || (m===9 && day<e)) ? 2 : 1;
+}
+function sunPos(doy, minutes){
+  const ms = Date.UTC(YEAR,0,doy) + (minutes - utcOffset(doy)*60)*60000;
+  const n = ms/86400000 + 2440587.5 - 2451545.0;
+  const L = (280.460 + 0.9856474*n) % 360, g = ((357.528 + 0.9856003*n) % 360)*deg;
+  const lam = (L + 1.915*Math.sin(g) + 0.020*Math.sin(2*g))*deg, eps = (23.439 - 0.0000004*n)*deg;
+  const ra = Math.atan2(Math.cos(eps)*Math.sin(lam), Math.cos(lam)), dec = Math.asin(Math.sin(eps)*Math.sin(lam));
+  const gmst = (280.46061837 + 360.98564736629*n) % 360;
+  const H = (gmst + M.lon)*deg - ra, phi = M.lat*deg;
+  const alt = Math.asin(Math.sin(phi)*Math.sin(dec) + Math.cos(phi)*Math.cos(dec)*Math.cos(H));
+  let az = Math.atan2(-Math.sin(H)*Math.cos(dec), Math.sin(dec)*Math.cos(phi) - Math.cos(dec)*Math.sin(phi)*Math.cos(H));
+  az = (az/deg + 360) % 360;
+  let a = alt/deg; if (a > -1) a += 1.02/Math.tan((a + 10.3/(a+5.11))*deg)/60;
+  return {alt:a, az};
+}
+function sunDir(az){
+  const ex=[Math.sin(BX*deg),Math.cos(BX*deg)], ey=[Math.sin(BY*deg),Math.cos(BY*deg)], s=[Math.sin(az*deg),Math.cos(az*deg)];
+  return [s[0]*ex[0]+s[1]*ex[1], s[0]*ey[0]+s[1]*ey[1]];
+}
+function sunTimes(doy){
+  let rise=null,set=null,prev=sunPos(doy,0).alt;
+  for(let t=5;t<=1440;t+=5){const a=sunPos(doy,t).alt; if(prev<=0&&a>0&&rise===null)rise=t; if(prev>0&&a<=0)set=t; prev=a;}
+  return {rise,set};
+}
+
+/* ---------------- zastínění: valbová střecha, stěny, sloupy, garáž ---------------- */
+const OC = SPEC.occluders, RF = SPEC.roof, TP = Math.tan(RF.pitch*deg);
+let EAVE = RF.eave, RXS = [], RIDGE = 0;
+function setEave(e){ EAVE = e; RXS = RF.rects.map(r=>[r[0]-e, r[1]-e, r[2]+e, r[3]+e]);
+  RIDGE = Math.max(...RXS.map(r=>RF.eaveTop + Math.min(r[2]-r[0], r[3]-r[1])/2*TP)); }
+setEave(RF.eave);
+const inR = (r,x,y) => x>r[0] && x<r[2] && y>r[1] && y<r[3];
+// valba tvaru L = horní obálka dvou valbových střech nad obdélníky (vznikne úžlabí)
+function roofZ(x,y){ let z=-Infinity;
+  for(const r of RXS) if(inR(r,x,y)) z=Math.max(z, RF.eaveTop + Math.min(x-r[0], r[2]-x, y-r[1], r[3]-y)*TP);
+  return z; }
+function blocked(px,py,z,d,ta){
+  const tmax = Math.min(90,(RIDGE+0.05-z)/ta), G=OC.garage, C=OC.canopy;
+  for(let t=0.05;t<=tmax;t+=0.1){
+    const x=px+d[0]*t, y=py+d[1]*t, zz=z+ta*t;
+    const rz = roofZ(x,y);
+    if(rz>-Infinity){
+      if(OC.walls.some(w=>inR(w,x,y))){ if(zz<rz) return true; }
+      else if(zz>=RF.soffit && zz<rz) return true; }
+    if(zz<RF.soffit) for(const c of OC.columns) if(inR(c,x,y)) return true;
+    if(zz<G[5] && inR(G,x,y)) return true;
+    if(C && zz>=C[4] && zz<=C[5] && inR(C,x,y)) return true;
+  }
+  return false;
+}
+const NORMAL = {N:[0,1],S:[0,-1],E:[1,0],W:[-1,0]};
+const DIFFUSE = new Set(SPEC.openings.filter(o=>/satin/.test(o.label)).map(o=>o.id));
+const OPEN_BY_ROOM = {};
+for(const o of SPEC.openings) if(!DIFFUSE.has(o.id) && o.kind!=="entry") (OPEN_BY_ROOM[o.room] ||= []).push(o);
+function throughOpening(o, x, y, d, ta){
+  const ns = o.wall==="N"||o.wall==="S", c = ns?y:x, dc = ns?d[1]:d[0], dl = ns?d[0]:d[1], l = ns?x:y;
+  const ti = (o.inner-c)/dc, to = (o.outer-c)/dc;
+  if(!(ti>0)) return null;
+  const si = l+dl*ti, zi = ta*ti, so = l+dl*to, zo = ta*to;
+  if(si<=o.a0||si>=o.a1||zi<=o.sill||zi>=o.head) return null;
+  if(so<=o.a0||so>=o.a1||zo>=o.head) return null;
+  return [x+d[0]*to, y+d[1]*to, zo];
+}
+function interiorSun(sp, cell){
+  const out = {}; if(sp.alt<=0.5) return out;
+  const d = sunDir(sp.az), ta = Math.tan(sp.alt*deg);
+  for(const rid in OPEN_BY_ROOM){
+    const facing = OPEN_BY_ROOM[rid].filter(o=>{const n=NORMAL[o.wall]; return d[0]*n[0]+d[1]*n[1]>0.03;});
+    if(!facing.length) continue;
+    const r = ROOM[rid], lit = [];
+    for(let j=Math.floor(r.y0/cell); j*cell<r.y1; j++) for(let i=Math.floor(r.x0/cell); i*cell<r.x1; i++){
+      const x=(i+.5)*cell, y=(j+.5)*cell; if(x<=r.x0||x>=r.x1||y<=r.y0||y>=r.y1) continue;
+      for(const o of facing){ const p = throughOpening(o,x,y,d,ta);
+        if(p && !blocked(p[0],p[1],p[2],d,ta)){ lit.push(i+":"+j); break; } }
+    }
+    out[rid] = lit;
+  }
+  return out;
+}
+function groundShadow(sp, box, cell){
+  const cells = []; if(sp.alt<=0.5) return cells;
+  const d = sunDir(sp.az), ta = Math.tan(sp.alt*deg), G = OC.garage;
+  for(let y=box[1]; y<box[3]; y+=cell) for(let x=box[0]; x<box[2]; x+=cell){
+    const cx=x+cell/2, cy=y+cell/2;
+    if(OC.walls.some(w=>inR(w,cx,cy)) || inR(G,cx,cy)) continue;
+    if(blocked(cx,cy,0.01,d,ta)) cells.push([x,y]);
+  }
+  return cells;
+}
+function cellsPath(keys, cell){
+  const rows = new Map();
+  for(const k of keys){const [i,j]=k.split(":").map(Number); (rows.get(j)||rows.set(j,[]).get(j)).push(i);}
+  let p="";
+  for(const [j,arr] of rows){ arr.sort((a,b)=>a-b); let st=arr[0],pv=arr[0];
+    for(let q=1;q<=arr.length;q++){ const v=arr[q]; if(v===pv+1){pv=v;continue;}
+      p+=`M${(st*cell).toFixed(2)} ${(-(j+1)*cell).toFixed(2)}h${((pv-st+1)*cell).toFixed(2)}v${cell}h${(-(pv-st+1)*cell).toFixed(2)}z`; st=v;pv=v; } }
+  return p;
+}
+const snapBox = (b, c) => [Math.floor(b[0]/c)*c, Math.floor(b[1]/c)*c, b[2], b[3]];
+function listPath(list, cell){
+  return cellsPath(list.map(([x,y])=>Math.round(x/cell)+":"+Math.round(y/cell)), cell);
+}
+
+/* ---------------- SVG ---------------- */
+function el(tag, attrs, parent, text){
+  const e = document.createElementNS(NS, tag);
+  for(const k in attrs) if(attrs[k]!==undefined && attrs[k]!==null) e.setAttribute(k, attrs[k]);
+  if(text!==undefined) e.textContent = text;
+  if(parent) parent.appendChild(e); return e;
+}
+const R = (r, attrs, parent) => el("rect", Object.assign({x:r.x0, y:-r.y1, width:+(r.x1-r.x0).toFixed(3), height:+(r.y1-r.y0).toFixed(3)}, attrs), parent);
+const FILLV = {hall:"var(--f-hall)", wet:"var(--f-wet)", room:"var(--f-room)", tech:"var(--f-tech)", living:"var(--f-living)"};
+const polyPts = ring => ring.map(p=>p[0]+","+(-p[1])).join(" ");
+const tipAttrs = label => label ? {"data-tip":label, tabindex:0} : {};
+function roofLines(g, sw){
+  const [A,B] = RXS, ring = [[A[0],A[1]],[A[2],A[1]],[A[2],B[3]],[B[0],B[3]],[B[0],A[3]],[A[0],A[3]]];
+  el("polygon",{points:polyPts(ring),fill:"none",stroke:"var(--accent)","stroke-width":sw,"stroke-dasharray":`${sw*4} ${sw*3}`,"data-tip":`Valbová střecha ${fmt(RF.pitch,0)}° tvaru L s jedním úžlabím, přesah ${fmt(EAVE,1)} m, hřeben cca ${fmt(RIDGE,1)} m nad podlahou`,tabindex:0},g);
+}
+
+/* ---------------- půdorys ---------------- */
+const plan = $("plan");
+const VB = [-9.6, -8.9, 19.0, 13.2];
+plan.setAttribute("viewBox", `${VB[0]} ${-VB[3]} ${VB[2]-VB[0]} ${VB[3]-VB[1]}`);
+const G = {}; ["ground","ext","shadow","rooms","sun","fur","walls","doors","roof","util","light","lbl","dim","ui"].forEach(k=>G[k]=el("g",{},plan));
+const own = SPEC.plot.parcels["2904/26"];
+el("clipPath",{id:"pc"},plan).appendChild(el("rect",{x:VB[0],y:-VB[3],width:VB[2]-VB[0],height:VB[3]-VB[1]}));
+el("polygon",{points:polyPts(SPEC.plot.parcels["2904/7"].ring),fill:"var(--road)","clip-path":"url(#pc)"},G.ground);
+el("polygon",{points:polyPts(own.ring),fill:"none",stroke:"var(--plotline)","stroke-width":.05,"stroke-dasharray":".4 .2"},G.ground);
+el("text",{x:15.5,y:8.6,class:"lbl sub","font-size":.34},G.ground,"komunikace 2904/7");
+const EXTFILL = {terrace:"var(--terrace)",paving:"var(--paving)",parking:"var(--paving)",garage:"var(--paving)",recess:"var(--paving)",canopy:"none",screen:"none",techwall:"none",hp_out:"var(--fur-fill)",bins:"var(--fur-fill)",tank:"none",tdine:"var(--fur-fill)",tsofa:"var(--fur-fill)",tlow:"var(--fur-fill)",column:"var(--wall)"};
+for(const e of SPEC.exterior){
+  if(e.t==="circ"){ el("circle",Object.assign({cx:e.cx,cy:-e.cy,r:e.r,fill:"var(--tree)",stroke:"var(--good)","stroke-width":.03},tipAttrs(e.label)),G.ext); continue; }
+  const dash = ["canopy","tank","screen","techwall"].includes(e.kind) ? ".15 .1" : null;
+  const g = ["tdine","tsofa","tlow","column","hp_out"].includes(e.kind) ? G.fur : G.ext;
+  R(e,Object.assign({fill:EXTFILL[e.kind]||"none",class:"ext","stroke-dasharray":dash,rx:["tdine","tlow"].includes(e.kind)?.1:0},tipAttrs(e.label)),g);
+  if(e.kind==="garage"){ el("path",{d:`M${e.x0} ${-e.y1}L${e.x1} ${-e.y0}M${e.x0} ${-e.y0}L${e.x1} ${-e.y1}`,stroke:"var(--fur)","stroke-width":.025,"pointer-events":"none"},G.ext);
+    el("line",{x1:e.x0+.2,y1:-e.y0,x2:e.x1-.2,y2:-e.y0,stroke:"var(--ink)","stroke-width":.08},G.ext); }
+  if(e.kind==="parking") for(const x of [e.x0, (e.x0+e.x1)/2]) el("rect",{x:x+.05,y:-e.y1,width:(e.x1-e.x0)/2-.1,height:e.y1-e.y0,fill:"none",stroke:"var(--fur)","stroke-width":.03},G.ext);
+}
+for(const h of SPEC.hedges) el("line",{x1:h.x0,y1:-h.y0,x2:h.x1,y2:-h.y1,stroke:"var(--good)","stroke-width":.5,"stroke-linecap":"round",opacity:.45,"data-tip":h.label,tabindex:0},G.ext);
+const FURCLS = {panel:"fur fireplace",rug:"fur rug",stove:"fur fireplace",firebox:"fur firebox",tv:"fur firebox",hob:"fur dark",hearth:"fur rug"};
+function drawHouse(G){ // G = skupiny {rooms, fur, walls, doors}; použito pro půdorys i detail místnosti
+for(const r of SPEC.rooms) R(r,{fill:FILLV[r.fill],class:"room"},G.rooms);
+for(const f of SPEC.furniture){
+  if(f.t==="circ"){ el("circle",Object.assign({cx:f.cx,cy:-f.cy,r:f.r,class:"fur"},tipAttrs(f.label)),G.fur); continue; }
+  R(f,Object.assign({class:FURCLS[f.kind]||"fur",rx:f.rx||0},tipAttrs(f.label)),G.fur);
+  if(f.kind==="sofa") el("rect",{x:f.x0,y:-(f.y0+0.25),width:f.x1-f.x0,height:.25,class:"fur"},G.fur);
+  if(f.kind==="sofa_e") el("rect",{x:f.x1-0.25,y:-f.y1,width:.25,height:f.y1-f.y0+0.7,class:"fur"},G.fur);
+  if(f.kind==="sink") el("circle",{cx:(f.x0+f.x1)/2,cy:-(f.y0+f.y1)/2,r:.06,class:"fur"},G.fur);
+  if(f.kind==="shower"){ el("path",{d:f.glass==="SW"?`M${f.x0} ${-f.y1}V${-f.y0}H${f.x1}`:`M${f.x0} ${-f.y0}V${-f.y1}H${f.x1}`,class:"glass",fill:"none"},G.fur); }
+  if(f.kind==="vanity") for(const k of [.3,.7]) el("ellipse",{cx:(f.x0+f.x1)/2,cy:-(f.y0+(f.y1-f.y0)*k),rx:.15,ry:.2,class:"fur"},G.fur);
+  if(f.kind==="storage"||f.kind==="tall"){ const vert=(f.y1-f.y0)>(f.x1-f.x0);
+    el("line",vert?{x1:(f.x0+f.x1)/2,y1:-f.y0,x2:(f.x0+f.x1)/2,y2:-f.y1}:{x1:f.x0,y1:-(f.y0+f.y1)/2,x2:f.x1,y2:-(f.y0+f.y1)/2},G.fur).setAttribute("class","fur"); }
+}
+for(const f of SPEC.furniture.filter(f=>f.kind==="bed")){
+  const w=f.x1-f.x0, h=f.y1-f.y0;
+  if(w>h){ const east = f.head ? f.head==="E" : (f.x1>5 && f.x1<7.5); // čelo podle f.head (E/W)
+    const n = h>1.5?2:1, ph=(h-0.2)/n-0.06;
+    for(let i=0;i<n;i++) el("rect",{x:east?f.x1-.5:f.x0+.08,y:-(f.y0+.1+i*(ph+.06)+ph),width:.42,height:ph,rx:.06,class:"fur"},G.fur);
+  } else if(f.head==="S") el("rect",{x:f.x0+.1,y:-(f.y0+.5),width:w-.2,height:.42,rx:.06,class:"fur"},G.fur);
+  else el("rect",{x:f.x0+.1,y:-(f.y1-.08),width:w-.2,height:.42,rx:.06,class:"fur"},G.fur);
+}
+for(const w of SPEC.walls) R(w,Object.assign({class:w.k==="part"?"wall-part":"wall-ext"}, w.acoustic?tipAttrs("Akustická příčka (Rw ≥ 50 dB) mezi ložnicí a pokojem 1.05, skříně zády k sobě"):{}),G.walls);
+for(const o of SPEC.openings){
+  const lo=Math.min(o.inner,o.outer), hi=Math.max(o.inner,o.outer), ns=o.wall==="N"||o.wall==="S";
+  const r = ns?{x0:o.a0,y0:lo,x1:o.a1,y1:hi}:{x0:lo,y0:o.a0,x1:hi,y1:o.a1};
+  R(r,Object.assign({fill:"var(--sheet)"},tipAttrs(o.id+" · "+o.label)),G.walls);
+  if(o.kind==="entry") continue;
+  const mid=(lo+hi)/2;
+  for(const g of (o.kind==="hs"?[-0.06,0.06]:[0])){
+    if(ns) el("line",{x1:o.a0,y1:-(mid+g),x2:o.a1,y2:-(mid+g),class:"glass"},G.walls);
+    else el("line",{x1:mid+g,y1:-o.a0,x2:mid+g,y2:-o.a1,class:"glass"},G.walls);
+  }
+  if(o.sill>0.3){ if(ns) el("line",{x1:o.a0,y1:-lo,x2:o.a1,y2:-lo,stroke:"var(--part)","stroke-width":.02},G.walls); else el("line",{x1:lo,y1:-o.a0,x2:lo,y2:-o.a1,stroke:"var(--part)","stroke-width":.02},G.walls); }
+}
+function swing(hx,hy,lx,ly,ex,ey){
+  const r=Math.hypot(lx-hx,ly-hy);
+  el("line",{x1:hx,y1:-hy,x2:lx,y2:-ly,class:"door"},G.doors);
+  const cross=(lx-hx)*(ey-hy)-(ly-hy)*(ex-hx); // v SVG je osa y převrácená
+  el("path",{d:`M${lx} ${-ly}A${r} ${r} 0 0 ${cross<0?1:0} ${ex} ${-ey}`,class:"door","stroke-dasharray":".05 .04"},G.doors);
+}
+for(const d of SPEC.idoors){
+  R(d,Object.assign({fill:d.hinge?"var(--sheet)":"var(--f-living)"},tipAttrs(d.label)),G.walls);
+  if(!d.hinge){ el("line",{x1:(d.x0+d.x1)/2,y1:-d.y0,x2:(d.x0+d.x1)/2,y2:-d.y1,class:"glass","data-tip":d.label,tabindex:0},G.doors); continue; }
+  const horiz = d.into==="-y"||d.into==="+y", ow = horiz?d.x1-d.x0:d.y1-d.y0, lw = d.leaf||ow, j = (ow-lw)/2;
+  if(j>0) for(const [a,b] of [[0,j],[ow-j,ow]])   // zárubeň
+    R(horiz?{x0:d.x0+a,y0:d.y0,x1:d.x0+b,y1:d.y1}:{x0:d.x0,y0:d.y0+a,x1:d.x1,y1:d.y0+b},{fill:"var(--part)"},G.walls);
+  if(horiz){
+    const y = d.into==="-y"?d.y0:d.y1, s = d.into==="-y"?-1:1;
+    const hx = d.hinge==="x0"?d.x0+j:d.x1-j, fx = d.hinge==="x0"?hx+lw:hx-lw;
+    swing(hx,y,hx,y+s*lw,fx,y);
+  } else { const x = d.into==="-x"?d.x0:d.x1, s=d.into==="-x"?-1:1;
+    if(d.hinge==="y1") swing(x,d.y1-j,x+s*lw,d.y1-j,x,d.y1-j-lw); else swing(x,d.y0+j,x+s*lw,d.y0+j,x,d.y0+j+lw); }
+}
+{ const e=SPEC.entrySwing; swing(e.hinge[0],e.hinge[1],e.open[0],e.open[1],e.closed[0],e.closed[1]);
+  const eo=SPEC.openings.find(o=>o.kind==="entry"), j=eo&&eo.frame;
+  if(j){ const lo=Math.min(eo.inner,eo.outer), hi=Math.max(eo.inner,eo.outer);   // rám vchodových dveří
+    for(const [a,b] of [[eo.a0,eo.a0+j],[eo.a1-j,eo.a1]]) R({x0:a,y0:lo,x1:b,y1:hi},{fill:"var(--part)"},G.walls); } }
+}
+drawHouse(G);
+const roofG = el("g",{},G.roof);
+const UCOL = {power:"var(--crit)", water:"var(--accent)", sewer:"var(--warn)", rain:"var(--good)", ditch:"var(--good)"};
+function drawUtilities(g, k){ // k = měřítko čar (1 půdorys, 2.5 situace)
+  for(const rt of SPEC.routes){ const ditch = rt.kind==="ditch";
+    el("polyline",Object.assign({points:rt.pts.map(p=>p[0]+","+(-p[1])).join(" "),fill:"none",stroke:UCOL[rt.kind],"stroke-width":(ditch?.35:.06)*k,"stroke-dasharray":ditch?null:`${.25*k} ${.12*k}`,opacity:ditch?.6:1},tipAttrs(rt.label)),g); }
+  for(const u of SPEC.utilities){
+    if(u.cx!==undefined){ el("circle",Object.assign({cx:u.cx,cy:-u.cy,r:u.r,fill:"var(--sheet)",stroke:UCOL[u.kind],"stroke-width":.07*k},tipAttrs(u.label)),g); continue; }
+    const old = u.kind==="pillar_old";
+    R(u,Object.assign({fill:old?"none":"var(--good)",stroke:old?"var(--crit)":"var(--ink)","stroke-width":.05*k,"stroke-dasharray":old?`${.12*k} ${.08*k}`:null},tipAttrs(u.label)),g);
+    if(old){ const cx=(u.x0+u.x1)/2, cy=(u.y0+u.y1)/2, a=.45*Math.min(k,1.6); el("path",{d:`M${cx-a} ${-cy-a}L${cx+a} ${-cy+a}M${cx-a} ${-cy+a}L${cx+a} ${-cy-a}`,stroke:"var(--crit)","stroke-width":.06*k,"pointer-events":"none"},g); }
+  }
+}
+drawUtilities(G.util,1);
+for(const u of SPEC.utilities) if(u.kind==="pillar_old"||u.kind==="pillar_new"){ const old=u.kind==="pillar_old";
+  el("text",{x:(u.x0+u.x1)/2,y:-(u.y1+0.95),class:"lbl","font-size":.26,style:`fill:var(${old?"--crit":"--good"})`},G.util,old?"pilíř dnes":"pilíř nově"); }
+for(const l of SPEC.lights){
+  const tip = tipAttrs("Svítidlo · "+l.label);
+  if(l.t==="ln"){ el("line",Object.assign({x1:l.x0,y1:-l.y0,x2:l.x1,y2:-l.y1,class:"lt-line"+(l.kind==="cove"?" dash":"")},tip),G.light); continue; }
+  const r = {down:.13,ceil:.2,graze:.1,floor:.17,table:.13,lamp:.13,wall:.1,step:.08,ext:.13,bollard:.12,uplight:.16}[l.kind]||.12;
+  el("circle",Object.assign({cx:l.x,cy:-l.y,r,class:"lt"},tip),G.light);
+  if(l.kind==="ceil"||l.kind==="floor") el("path",{d:`M${l.x-r} ${-l.y}h${2*r}M${l.x} ${-l.y-r}v${2*r}`,stroke:"var(--ink)","stroke-width":.02,"pointer-events":"none"},G.light);
+}
+for(const r of SPEC.rooms){
+  const [x,y]=r.lbl, k=r.lblFs||1;   // popisek ve volném místě místnosti, malé místnosti menším písmem
+  const lines = r.lblSplit ? [[r.id,.3,700,""],[r.short||r.name,.3,700,""],[`${fmt(r.area)} m²`,.27,400," sub"]]
+                           : [[`${r.id} ${r.short||r.name}`,.3,700,""],[`${fmt(r.area)} m²`,.27,400," sub"]];
+  lines.forEach(([txt,fs,fw,cls],i)=>el("text",{x,y:-y+i*.36*k,class:"lbl"+cls,"font-size":fs*k,"font-weight":fw},G.lbl,txt));
+}
+SPEC.notes.forEach(t=>el("text",{x:t[1],y:-t[2],class:"lbl sub","font-size":.28},G.lbl,t[0]));
+function dimH(x0,x1,y,t){ const g=el("g",{class:"dim"},G.dim); el("line",{x1:x0,y1:-y,x2:x1,y2:-y},g); for(const x of [x0,x1]) el("line",{x1:x-.12,y1:-y+.12,x2:x+.12,y2:-y-.12},g); el("text",{x:(x0+x1)/2,y:-y-.12,"font-size":.3},g,t); }
+function dimV(y0,y1,x,t){ const g=el("g",{class:"dim"},G.dim); el("line",{x1:x,y1:-y0,x2:x,y2:-y1},g); for(const y of [y0,y1]) el("line",{x1:x-.12,y1:-y+.12,x2:x+.12,y2:-y-.12},g); el("text",{x:x-.14,y:-(y0+y1)/2,"font-size":.3,transform:`rotate(-90 ${x-.14} ${-(y0+y1)/2})`},g,t); }
+SPEC.dims.h.forEach(d=>dimH(...d)); SPEC.dims.v.forEach(d=>dimV(...d));
+const BX0=VB[0]+1.6, BY0=11.6;
+const UI = el("g",{transform:`translate(${BX0} ${-BY0})`},G.ui);
+el("circle",{r:1.2,fill:"var(--sheet)",stroke:"var(--line)","stroke-width":.04},UI);
+const nv = [Math.cos(BX*deg), Math.cos(BY*deg)];
+el("line",{x1:-nv[0]*1.0,y1:nv[1]*1.0,x2:nv[0]*1.0,y2:-nv[1]*1.0,stroke:"var(--ink)","stroke-width":.06},UI);
+el("text",{x:nv[0]*1.5,y:-nv[1]*1.5+.12,class:"lbl","font-size":.36,"font-weight":700},UI,"S");
+const sunLine = el("line",{stroke:"var(--sun)","stroke-width":.09,"stroke-linecap":"round"},UI);
+const sunDot = el("circle",{r:.22,fill:"var(--sun)",stroke:"var(--ink)","stroke-width":.03},UI);
+
+/* ---------------- situace ---------------- */
+const site = $("site");
+const SB = [-27, -20, 40, 38];
+site.setAttribute("viewBox", `${SB[0]} ${-SB[3]} ${SB[2]-SB[0]} ${SB[3]-SB[1]}`);
+el("clipPath",{id:"sc"},site).appendChild(el("rect",{x:SB[0],y:-SB[3],width:SB[2]-SB[0],height:SB[3]-SB[1]}));
+const SG = el("g",{"clip-path":"url(#sc)"},site);
+for(const [k,p] of Object.entries(SPEC.plot.parcels)){
+  const fill = p.kind==="road"?"var(--road)":p.kind==="own"?"var(--sheet)":"var(--ground)";
+  el("polygon",{points:polyPts(p.ring),fill,stroke:"var(--plotline)","stroke-width":p.kind==="own"?.18:.08},SG);
+  if(p.kind!=="road"){ const cx=p.ring.reduce((a,q)=>a+q[0],0)/p.ring.length, cy=p.ring.reduce((a,q)=>a+q[1],0)/p.ring.length;
+    if(cx>SB[0]+3&&cx<SB[2]-3&&cy>SB[1]+2&&cy<SB[3]-2&&k!=="2904/26") el("text",{x:cx,y:-cy,class:"lbl sub","font-size":1.4},SG,k); }
+}
+el("text",{x:26,y:12.2,class:"lbl sub","font-size":1.3},SG,"komunikace 2904/7");
+el("text",{x:4,y:-30.5,class:"lbl","font-size":1.5,"font-weight":700},SG,"2904/26 · 1 216 m²");
+el("text",{x:-3,y:-37,class:"lbl sub","font-size":1.3},SG,"2905/1 · volná plocha");
+// terén: vrstevnice po 0,25 m z ČÚZK DMR 5G, kóty v m n. m.
+const T = SPEC.terrain;
+function zAt(x,y){ const fx=x-T.x0, fy=y-T.y0, i=Math.max(0,Math.min(T.nx-2,Math.floor(fx))), j=Math.max(0,Math.min(T.ny-2,Math.floor(fy))), tx=fx-i, ty=fy-j, Z=(a,b)=>T.z[b*T.nx+a];
+  return (Z(i,j)*(1-tx)+Z(i+1,j)*tx)*(1-ty)+(Z(i,j+1)*(1-tx)+Z(i+1,j+1)*tx)*ty; }
+if(T){ const g=el("g",{"pointer-events":"none"},SG), Z=(i,j)=>T.z[j*T.nx+i], zmin=Math.min(...T.z), zmax=Math.max(...T.z);
+  for(let L=Math.ceil(zmin*4)/4; L<=zmax; L+=0.25){ let d="";
+    for(let j=0;j<T.ny-1;j++) for(let i=0;i<T.nx-1;i++){
+      const v=[Z(i,j),Z(i+1,j),Z(i+1,j+1),Z(i,j+1)], c=[[0,0],[1,0],[1,1],[0,1]], pts=[];
+      for(let k=0;k<4;k++){ const a=v[k], b=v[(k+1)%4]; if((a<L)!==(b<L)){ const t=(L-a)/(b-a), pa=c[k], pb=c[(k+1)%4];
+        pts.push([T.x0+i+pa[0]+(pb[0]-pa[0])*t, T.y0+j+pa[1]+(pb[1]-pa[1])*t]); } }
+      for(let k=0;k+1<pts.length;k+=2) d+=`M${pts[k][0].toFixed(2)} ${(-pts[k][1]).toFixed(2)}L${pts[k+1][0].toFixed(2)} ${(-pts[k+1][1]).toFixed(2)}`;
+    }
+    const major = Math.abs(L*2-Math.round(L*2))<1e-6;
+    el("path",{d,fill:"none",stroke:"var(--accent)","stroke-width":major?.1:.05,opacity:major?.55:.3},g);
+  }
+}
+const pr = own.ring, minx=Math.max(pr[2][0],pr[3][0])+2, maxx=Math.min(pr[0][0],pr[1][0])-2, maxy=Math.min(pr[1][1],pr[2][1])-2;
+el("rect",{x:minx,y:-maxy,width:maxx-minx,height:maxy-(-5),fill:"none",stroke:"var(--muted)","stroke-width":.08,"stroke-dasharray":".5 .35"},SG);
+const siteShadow = el("path",{class:"shadow"},SG);
+for(const e of SPEC.exterior){
+  if(e.t==="circ"){ el("circle",{cx:e.cx,cy:-e.cy,r:e.r,fill:"var(--tree)",stroke:"var(--good)","stroke-width":.08},SG); continue; }
+  if(["terrace","paving","parking","garage"].includes(e.kind)) R(e,{fill:EXTFILL[e.kind],stroke:e.kind==="garage"?"var(--ink)":"var(--fur)","stroke-width":e.kind==="garage"?.18:.06},SG);
+}
+for(const h of SPEC.hedges) el("line",{x1:h.x0,y1:-h.y0,x2:h.x1,y2:-h.y1,stroke:"var(--good)","stroke-width":.6,opacity:.5},SG);
+el("polygon",{points:polyPts(SPEC.outline),fill:"var(--f-living)",stroke:"var(--wall)","stroke-width":.25},SG);
+const siteRoof = el("g",{},SG);
+if(T) for(const [x,y] of [[-10.1,-6.8],[18.1,-6.8],[-10.1,35],[18.1,35.4],[0,-0.55],[M.width,-0.55],[0,M.depthMain],[M.width,M.depthAll]]){
+  el("circle",{cx:x,cy:-y,r:.25,fill:"var(--accent)"},SG);
+  el("text",{x:x+(x<5?.5:-.5),y:-y+(y<5?1.4:-.6),class:"lbl","font-size":1.05,"text-anchor":x<5?"start":"end",style:"fill:var(--accent)"},SG,fmt(zAt(x,y),2));
+}
+for(const e of SPEC.exterior) if(e.kind==="tank"||e.kind==="soak") R(e,{fill:"none",stroke:"var(--good)","stroke-width":.12,"stroke-dasharray":".4 .3","data-tip":e.label},SG);
+el("text",{x:14.8,y:-30.1,class:"lbl","font-size":.95,style:"fill:var(--good)"},SG,"vsak 6 m³");
+el("text",{x:11.0,y:-37.55,class:"lbl","font-size":.95,style:"fill:var(--good)"},SG,"příkop");
+drawUtilities(SG,2.2);
+el("text",{x:7,y:-4.2,class:"lbl","font-size":1.2,"font-weight":700},SG,"RD v6");
+el("text",{x:-5.4,y:-1.6,class:"lbl","font-size":1.0,"font-weight":700},SG,"garáž");
+function sdim(x0,y0,x1,y1,t){ const g=el("g",{class:"dim"},SG); el("line",{x1:x0,y1:-y0,x2:x1,y2:-y1,"stroke-width":.08},g);
+  el("text",{x:(x0+x1)/2+(x0===x1?1.1:0),y:-(y0+y1)/2-(y0===y1?.45:-.4),"font-size":1.3},g,t); }
+SPEC.siteDims.forEach(d=>sdim(...d));
+const SUI = el("g",{transform:"translate(-22.5 -33.5)"},site);
+el("circle",{r:3,fill:"var(--sheet)",stroke:"var(--line)","stroke-width":.1},SUI);
+el("line",{x1:-nv[0]*2.5,y1:nv[1]*2.5,x2:nv[0]*2.5,y2:-nv[1]*2.5,stroke:"var(--ink)","stroke-width":.15},SUI);
+el("text",{x:nv[0]*3.8,y:-nv[1]*3.8+.35,class:"lbl","font-size":1.1,"font-weight":700},SUI,"S");
+const sSunLine = el("line",{stroke:"var(--sun)","stroke-width":.25,"stroke-linecap":"round"},SUI);
+const sSunDot = el("circle",{r:.55,fill:"var(--sun)",stroke:"var(--ink)","stroke-width":.08},SUI);
+
+/* ---------------- detail místnosti s kótami ---------------- */
+const det = $("detail"), dInfo = $("dInfo"), cm = v => Math.round(v*100);
+const DROOMS = SPEC.rooms.map(r=>({id:r.id, name:r.name, btn:r.id+" "+(r.short||r.name).split(" · ")[0], x0:r.x0, y0:r.y0, x1:r.x1, y1:r.y1}))
+  .concat(SPEC.exterior.filter(e=>e.kind==="terrace").map(e=>({id:"T", name:"Krytá terasa", btn:"Terasa", x0:e.x0, y0:e.y0, x1:e.x1, y1:e.y1, ext:true})))
+  .sort((a,b)=>(a.id==="T")-(b.id==="T") || a.id.localeCompare(b.id));
+$("dRooms").innerHTML = DROOMS.map(r=>`<button data-r="${r.id}">${r.btn}</button>`).join("");
+const DG = {}; ["ext","rooms","fur","walls","doors","mask","dim","gap","size"].forEach(k=>DG[k]=el("g",{},det));
+for(const e of SPEC.exterior) if(["terrace","recess","paving","column"].includes(e.kind)) R(e,Object.assign({fill:EXTFILL[e.kind],class:"ext"},tipAttrs(e.label)),DG.ext);
+drawHouse(DG);
+const KNAME = {chair:"Židle",stool:"Židle",night:"Noční stolek",planter:"Květináč",appl:"Spotřebič",hob:"Varná deska",sink:"Dřez",firebox:"Topeniště krbu",tv:"Televize"};
+const OKIND = {fix:"fixní zasklení",win:"okno",hs:"HS portál",entry:"vchodové dveře"};
+const fbox = f => f.t==="circ" ? {x0:f.cx-f.r,y0:f.cy-f.r,x1:f.cx+f.r,y1:f.cy+f.r} : f;
+const fname = f => (f.label||KNAME[f.kind]||f.kind).split(/:|\(| – |, /)[0].trim();
+const NOSRC = new Set(["rug","hob","sink","firebox","tv","hearth","chair","stool","night","panel","appl","planter"]);
+const NOOBST = new Set(["rug","hob","sink","firebox","tv","panel","hearth","chair","stool","appl"]);
+function sideOpenings(r){
+  const S = {N:[],S:[],E:[],W:[]};
+  for(const o of SPEC.openings) if(o.room===r.id) S[o.wall].push({a0:o.a0, a1:o.a1, o});
+  for(const d of SPEC.idoors){
+    if((d.x1-d.x0)>(d.y1-d.y0)){ if(d.x1<=r.x0+.01||d.x0>=r.x1-.01) continue;
+      if(Math.abs(d.y1-r.y0)<.05) S.S.push({a0:d.x0,a1:d.x1,d}); else if(Math.abs(d.y0-r.y1)<.05) S.N.push({a0:d.x0,a1:d.x1,d}); }
+    else { if(d.y1<=r.y0+.01||d.y0>=r.y1-.01) continue;
+      if(Math.abs(d.x1-r.x0)<.05) S.W.push({a0:d.y0,a1:d.y1,d}); else if(Math.abs(d.x0-r.x1)<.05) S.E.push({a0:d.y0,a1:d.y1,d}); }
+  }
+  for(const k in S) S[k].sort((a,b)=>a.a0-b.a0);
+  return S;
+}
+// kóta mezi body (x0,y0)–(x1,y1); text nad vodorovnou / vlevo od svislé čáry
+function dline(g, x0, y0, x1, y1, txt, s, cls){
+  const q = el("g",{class:"dim"+(cls?" "+cls:"")},g), tk=.06*s, fs=(cls==="gap"?.14:.16)*s;
+  el("line",{x1:x0,y1:-y0,x2:x1,y2:-y1,style:`stroke-width:${.01*s}`},q);
+  for(const [x,y] of [[x0,y0],[x1,y1]]) el("line",{x1:x-tk,y1:-y+tk,x2:x+tk,y2:-y-tk,style:`stroke-width:${.018*s}`},q);
+  if(txt===null) return q;
+  const mx=(x0+x1)/2, my=-(y0+y1)/2;
+  if(Math.abs(y1-y0)<1e-6) el("text",{x:mx,y:my-.05*s,"font-size":fs},q,txt);
+  else el("text",{x:mx-.05*s,y:my,"font-size":fs,transform:`rotate(-90 ${mx-.05*s} ${my})`},q,txt);
+  return q;
+}
+function chain(r, side, items, off, s){
+  const horiz = side==="N"||side==="S", lo = horiz?r.x0:r.y0, hi = horiz?r.x1:r.y1;
+  const pts = [lo]; for(const it of items){ pts.push(Math.max(lo,it.a0), Math.min(hi,it.a1)); } pts.push(hi);
+  const G0 = el("g",{"data-op":1},DG.dim);
+  const at = {S:r.y0-off, N:r.y1+off, W:r.x0-off, E:r.x1+off}[side], face = {S:r.y0, N:r.y1, W:r.x0, E:r.x1}[side];
+  for(let i=0;i<pts.length-1;i++){ const a=pts[i], b=pts[i+1]; if(b-a<.005) continue;
+    if(horiz) dline(G0,a,at,b,at,fmt(b-a),s); else dline(G0,at,a,at,b,fmt(b-a),s); }
+  for(const p of pts.slice(1,-1)){ const q=el("g",{class:"dim ext"},G0);
+    if(horiz) el("line",{x1:p,y1:-face,x2:p,y2:-at,style:`stroke-width:${.008*s}`},q); else el("line",{x1:face,y1:-p,x2:at,y2:-p,style:`stroke-width:${.008*s}`},q); }
+}
+function inRoom(f, r){ const b=fbox(f), cx=(b.x0+b.x1)/2, cy=(b.y0+b.y1)/2; return cx>r.x0-.02&&cx<r.x1+.02&&cy>r.y0-.02&&cy<r.y1+.02; }
+function gaps(r, F, s){
+  const done = new Set(), obst = F.filter(f=>!NOOBST.has(f.kind));
+  F.forEach((A,ia)=>{ if(NOSRC.has(A.kind)) return; const a=fbox(A);
+    for(const [ax,dir] of [["x",1],["x",-1],["y",1],["y",-1]]){
+      const p0 = ax==="x"?"y0":"x0", p1 = ax==="x"?"y1":"x1", f0 = ax+(dir>0?"1":"0");
+      let best = dir>0 ? r[ax+"1"]-a[f0] : a[f0]-r[ax+"0"], who = "wall", lo=a[p0], hi=a[p1];
+      for(const B of obst){ if(B===A) continue; const b=fbox(B);
+        const ol0=Math.max(a[p0],b[p0]), ol1=Math.min(a[p1],b[p1]); if(ol1-ol0<.05) continue;
+        const d = dir>0 ? b[ax+"0"]-a[f0] : a[f0]-b[ax+"1"]; if(d<-.01) continue;
+        if(d<best){ best=d; who=F.indexOf(B); lo=ol0; hi=ol1; } }
+      if(best<.06||best>3.2) continue;
+      const key = who==="wall" ? ia+ax+dir : [ia,who].sort().join("-")+ax;
+      if(done.has(key)) continue; done.add(key);
+      const m=(lo+hi)/2, e=a[f0], e2=e+dir*best;
+      if(ax==="x") dline(DG.gap,Math.min(e,e2),m,Math.max(e,e2),m,fmt(best),s,"gap"); else dline(DG.gap,m,Math.min(e,e2),m,Math.max(e,e2),fmt(best),s,"gap");
+    } });
+}
+function sizeLabels(F, s){
+  const inside = (b,c) => b!==c && b.x0>=c.x0-.01 && b.x1<=c.x1+.01 && b.y0>=c.y0-.01 && b.y1<=c.y1+.01;
+  for(const f of F){ if(["hob","sink","firebox","tv","panel","appl","chair","stool"].includes(f.kind)) continue;
+    const b=fbox(f), w=b.x1-b.x0, h=b.y1-b.y0, vert=h>w*1.25;
+    if(F.some(c=>c!==f && c.kind!=="rug" && f.kind!=="rug" && inside(b,fbox(c)))) continue;
+    const txt = f.t==="circ" ? "Ø"+cm(2*f.r) : (vert?cm(h)+"×"+cm(w):cm(w)+"×"+cm(h));
+    const L = vert?h:w, fs = Math.min(.13*s, .9*L/(txt.length*.62), .8*(vert?w:h));
+    if(fs<.07*s) continue;
+    const cx=(b.x0+b.x1)/2, cy=-(b.y0+b.y1)/2;
+    el("text",{x:cx,y:cy,class:"fsize","font-size":fs,transform:vert?`rotate(-90 ${cx} ${cy})`:null},DG.size,txt);
+  }
+}
+function showRoom(id){
+  const r = DROOMS.find(q=>q.id===id); for(const b of $("dRooms").children) b.setAttribute("aria-pressed", String(b.dataset.r===id));
+  for(const k of ["mask","dim","gap","size"]) DG[k].replaceChildren();
+  const w=r.x1-r.x0, h=r.y1-r.y0, s=Math.max(.6,Math.min(1.7,Math.max(w,h)/5));
+  const off1=.55+.35*s, off2=off1+.45*s, m=off2+.4*s;
+  const vb=[r.x0-m, r.y0-m, w+2*m, h+2*m];
+  det.setAttribute("viewBox", `${vb[0]} ${-(vb[1]+vb[3])} ${vb[2]} ${vb[3]}`);
+  el("path",{d:`M${vb[0]-5} ${-(vb[1]+vb[3])-5}h${vb[2]+10}v${vb[3]+10}h${-vb[2]-10}Z M${r.x0} ${-r.y1}h${w}v${h}h${-w}Z`,"fill-rule":"evenodd",fill:"var(--sheet)",opacity:.88},DG.mask);
+  const S = sideOpenings(r);
+  for(const side of ["N","S","E","W"]) if(S[side].length) chain(r, side, S[side], off1, s);
+  dline(DG.dim, r.x0, r.y0-off2, r.x1, r.y0-off2, fmt(w), s);
+  dline(DG.dim, r.x0-off2, r.y0, r.x0-off2, r.y1, fmt(h), s);
+  const F = SPEC.furniture.filter(f=>inRoom(f,r));
+  gaps(r, F, s); sizeLabels(F, s);
+  el("line",{x1:vb[0]+vb[2]-m+.1,y1:-(r.y0-m+.25*s),x2:vb[0]+vb[2]-m+1.1,y2:-(r.y0-m+.25*s),stroke:"var(--ink)","stroke-width":.04*s},DG.dim);
+  el("text",{x:vb[0]+vb[2]-m+.6,y:-(r.y0-m+.32*s),class:"lbl","font-size":.13*s},DG.dim,"1 m");
+  // boční panel
+  const ops = []; for(const side of ["S","E","N","W"]) for(const it of S[side]){
+    if(it.o){ const o=it.o; ops.push([`${o.id} ${OKIND[o.kind]||o.kind} (${{N:"sever",S:"jih",E:"východ",W:"západ"}[side]})`,
+      o.leaf ? `otvor ${fmt(o.width)} × ${fmt(o.head-o.sill)}, křídlo ${fmt(o.leaf)}` :
+      `${fmt(o.width)} × ${fmt(o.head-o.sill)}`+(o.sill>0?`, parapet ${fmt(o.sill)}`:"")]); }
+    else { const d=it.d; ops.push([`${d.id} ${d.hinge?"dveře 80":"posuvné dveře"}`, `otvor ${fmt(it.a1-it.a0)}`+(d.leaf?`, křídlo ${fmt(d.leaf)}`:"")]); } }
+  const grp = new Map(); for(const f of F){ const b=fbox(f), k=fname(f)+"|"+(f.t==="circ"?"Ø"+cm(2*f.r):cm(b.x1-b.x0)+" × "+cm(b.y1-b.y0));
+    grp.set(k,(grp.get(k)||0)+1); }
+  const rm = ROOM[r.id];
+  $("dSide").innerHTML = `<div><div class="dhead">${r.id==="T"?"":r.id+" "}${r.name}</div>
+      <div class="small">světle ${fmt(w)} × ${fmt(h)} m · ${fmt(rm?rm.area:w*h)} m²${rm?" · výška "+fmt(M.ceiling)+" m":""}</div></div>
+    ${ops.length?`<div><div class="row small" style="margin-bottom:6px">Okna a dveře (šířka × výška, m)</div><div class="dlist">${ops.map(o=>`<div><span>${o[0]}</span><span class="num">${o[1]}</span></div>`).join("")}</div></div>`:""}
+    <div><div class="row small" style="margin-bottom:6px">Nábytek (půdorysný rozměr, cm)</div><div class="dlist">${[...grp].map(([k,n])=>{const [nm,sz]=k.split("|"); return `<div><span>${n>1?n+"× ":""}${nm}</span><span class="num">${sz}</span></div>`;}).join("")||'<div><span class="small">bez nábytku</span><span></span></div>'}</div></div>
+    <p class="small" style="margin:0">Rozměr nábytku je vodorovně × svisle podle výkresu. Modré odstupy se měří ve směru os místnosti k nejbližší překážce.</p>`;
+  applyDetailLayers();
+}
+function applyDetailLayers(){
+  DG.gap.style.display = $("dyGap").checked?"":"none";
+  DG.size.style.display = $("dySize").checked?"":"none";
+  const sh = $("dyOpen").checked; DG.dim.querySelectorAll("[data-op]").forEach(e=>e.style.display=sh?"":"none");
+}
+for(const id of ["dyOpen","dyGap","dySize"]) $(id).addEventListener("change", applyDetailLayers);
+$("dRooms").addEventListener("click", e=>{ const b=e.target.closest("button"); if(b) showRoom(b.dataset.r); });
+for(const ev of ["pointerover","click","focusin"]) det.addEventListener(ev, e=>{ const t=e.target.closest("[data-tip]"); if(t) dInfo.textContent=t.getAttribute("data-tip"); });
+showRoom("1.08");
+
+/* ---------------- ovládání ---------------- */
+const info = $("info");
+function showTip(e){ const t=e.target.closest("[data-tip]"); if(t) info.textContent = t.getAttribute("data-tip"); }
+for(const ev of ["pointerover","click","focusin"]) plan.addEventListener(ev, showTip);
+const layers = {lyFur:[G.fur], lyLight:[G.light], lyDim:[G.dim], lyRoof:[G.roof], lyUtil:[G.util], lySun:[G.sun,G.shadow], lyLbl:[G.lbl]};
+for(const id in layers){ const cb=$(id); const ap=()=>layers[id].forEach(g=>g.style.display=cb.checked?"":"none"); cb.addEventListener("change",ap); ap(); }
+const sunPatch = el("path",{class:"sunpatch"},G.sun);
+const shadowPath = el("path",{class:"shadow"},G.shadow);
+const PRE = [["21. 12.",355],["1. 3.",60],["21. 3.",80],["21. 6.",172],["23. 9.",266]];
+$("presets").innerHTML = PRE.map(p=>`<button data-doy="${p[1]}">${p[0]}</button>`).join("");
+const dateIn=$("date"), timeIn=$("time"), eaveIn=$("eave");
+$("presets").addEventListener("click",e=>{const b=e.target.closest("button"); if(!b)return; dateIn.value=b.dataset.doy; onDate();});
+const MONTHS=["ledna","února","března","dubna","května","června","července","srpna","září","října","listopadu","prosince"];
+const dateLabel = doy => { const d=new Date(Date.UTC(YEAR,0,doy)); return d.getUTCDate()+". "+MONTHS[d.getUTCMonth()]; };
+const hm = m => Math.floor(m/60)+":"+String(Math.round(m%60)).padStart(2,"0");
+function drawRoofs(){ roofG.replaceChildren(); siteRoof.replaceChildren(); roofLines(roofG,.05); roofLines(siteRoof,.15); }
+function render(){
+  const doy=+dateIn.value, t=+timeIn.value;
+  if(+eaveIn.value!==EAVE){ setEave(+eaveIn.value); drawRoofs(); }
+  $("dateVal").textContent = dateLabel(doy); $("timeVal").textContent = hm(t)+(utcOffset(doy)===2?" SELČ":" SEČ");
+  $("eaveVal").textContent = fmt(EAVE,1)+" m";
+  for(const b of $("presets").children) b.setAttribute("aria-pressed", String(+b.dataset.doy===doy));
+  const sp = sunPos(doy,t), st = sunTimes(doy), d = sunDir(sp.az), up = sp.alt>0, len = up ? Math.cos(sp.alt*deg) : 0;
+  [[sunLine,sunDot,1],[sSunLine,sSunDot,2.4]].forEach(([ln,dot,k])=>{
+    ln.setAttribute("x1",0);ln.setAttribute("y1",0);ln.setAttribute("x2",d[0]*len*k);ln.setAttribute("y2",-d[1]*len*k);
+    dot.setAttribute("cx",d[0]*len*k);dot.setAttribute("cy",-d[1]*len*k);dot.style.display=up?"":"none";ln.style.display=up?"":"none"; });
+  $("sunread").innerHTML = `<div><span>Výška slunce</span>${up?fmt(sp.alt,1)+"°":"pod obzorem"}</div><div><span>Azimut</span>${fmt(sp.az,0)}° ${azName(sp.az)}</div>`+
+    `<div><span>Východ</span>${st.rise?hm(st.rise):"–"}</div><div><span>Západ</span>${st.set?hm(st.set):"–"}</div>`;
+  const sun = interiorSun(sp,0.1), keys=[]; for(const r in sun) keys.push(...sun[r]);
+  sunPatch.setAttribute("d", cellsPath(keys,0.1));
+  shadowPath.setAttribute("d", listPath(groundShadow(sp,snapBox(VB,0.25),0.25),0.25));
+  siteShadow.setAttribute("d", listPath(groundShadow(sp,snapBox([-10.3,-7,18.4,35.8],0.4),0.4),0.4));
+}
+const SUMROOMS = ["1.08","1.06","1.04","1.05","1.03","1.01","1.07"];
+const LIVING_Y = 7.3; // obývací část obytného prostoru (severně od jídelny)
+const TERR = SPEC.exterior.filter(e=>e.kind==="terrace").map(e=>[e.x0,e.y0,e.x1,e.y1,"Krytá terasa"]);
+function daySummary(doy){
+  const res = Object.fromEntries(SUMROOMS.map(r=>[r,0])); res.obyv=0; TERR.forEach(t=>res[t[4]]=0);
+  const st=sunTimes(doy); if(!st.rise) return res;
+  for(let t=st.rise; t<st.set; t+=10){
+    const sp=sunPos(doy,t); if(sp.alt<=0.5) continue;
+    const s = interiorSun(sp,0.2);
+    for(const r of SUMROOMS) if(s[r] && s[r].length>=6) res[r]+=10;
+    if(s["1.08"] && s["1.08"].filter(k=>(+k.split(":")[1]+.5)*0.2>=LIVING_Y).length>=6) res["obyv"]+=10;
+    const d=sunDir(sp.az), ta=Math.tan(sp.alt*deg);
+    for(const tr of TERR){ let lit=0,tot=0;
+      for(let y=tr[1]+.25;y<tr[3];y+=.5) for(let x=tr[0]+.25;x<tr[2];x+=.5){ tot++; if(!blocked(x,y,.01,d,ta)) lit++; }
+      if(lit/tot>=0.15) res[tr[4]]+=10; }
+  }
+  return res;
+}
+const NAMES = Object.fromEntries(SPEC.rooms.map(r=>[r.id,r.id+" "+(r.short||r.name)]));
+NAMES["1.08"]="1.08 Obytný prostor"; NAMES.obyv="z toho obývací část"; TERR.forEach(t=>NAMES[t[4]]=t[4]);
+let sumTimer=null;
+function renderBars(){
+  clearTimeout(sumTimer);
+  sumTimer = setTimeout(()=>{
+    const res = daySummary(+dateIn.value), max = Math.max(600, ...Object.values(res));
+    $("bars").innerHTML = Object.entries(res).map(([k,v])=>`<div class="bar"><span>${NAMES[k]}</span><span class="t"><i style="width:${(v/max*100).toFixed(1)}%"></i></span><span class="v">${hm(v)}</span></div>`).join("");
+  }, 120);
+}
+function onDate(){ render(); renderBars(); }
+dateIn.addEventListener("input", onDate);
+timeIn.addEventListener("input", render);
+eaveIn.addEventListener("input", ()=>{ render(); renderBars(); });
+let playing=null;
+const stopPlay=()=>{ clearInterval(playing); playing=null; $("play").setAttribute("aria-pressed","false"); $("play").textContent="▶ Přehrát den"; };
+$("play").addEventListener("click",()=>{
+  if(playing) return stopPlay();
+  const st=sunTimes(+dateIn.value); if(+timeIn.value>=st.set-5) timeIn.value=st.rise;
+  $("play").setAttribute("aria-pressed","true"); $("play").textContent="❚❚ Zastavit";
+  playing=setInterval(()=>{ const t=+timeIn.value+10; if(t>sunTimes(+dateIn.value).set) return stopPlay(); timeIn.value=t; render(); }, 90);
+});
+drawRoofs(); render(); renderBars();
+const cols = [];
+(function next(i){
+  if(i<PRE.length){ cols.push(daySummary(PRE[i][1])); setTimeout(()=>next(i+1), 30); return; }
+  $("sunTable").tBodies[0].innerHTML = Object.keys(cols[0]).map(k=>`<tr><td>${NAMES[k]}</td>${cols.map(c=>`<td class="num">${fmt(c[k]/60,1)} h</td>`).join("")}</tr>`).join("");
+})(0);
+})();
+</script>
